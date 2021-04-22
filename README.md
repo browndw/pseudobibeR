@@ -22,14 +22,14 @@ library(pseudobibeR)
 
 spacy_initialize()
 
-# The package comes loaded with a small corpus, micusp_mini
-# Here will take the first 10 texts and create a quanteda corpus object
+# The package comes loaded with a small corpus, micusp_mini.
+# Here we will take the first 10 texts and create a quanteda corpus object.
 micusp_corpus <- quanteda::corpus(micusp_mini[1:10,])
 
-# Parse using spacyr; that that we need dependency set to TRUE
+# Parse using spacyr; note that we need dependency set to TRUE.
 micusp_prsd <- spacy_parse(micusp_corpus, pos = T, tag = T, dependency = T, entity = F)
 
-# Aggregate the features into a data.frame
+# Aggregate the features into a data.frame.
 df_biber <- biber_parse(micusp_prsd)
 ```
 
