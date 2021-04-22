@@ -6,6 +6,35 @@ The scripts are not really taggers. Rather, they use [spaCy](https://spacy.io/) 
 
 Because they rely on spaCy, the accuracy of the resulting counts are dependent on the accuracy of tagging produced by spaCy. Thus, texts with irregular spellings, non-normative punctuation, etc. will likely produce unreliable outputs.
 
+## Installing and Running pseudobibeR
+
+Use devtools to install the package.
+
+```r
+devtools::install_github("browndw/pseudobibeR")
+```
+
+The main parsing function requires text processed using spacyr.
+
+```r
+library(spacyr)
+library(pseudobibeR)
+
+spacy_initialize()
+
+# The package comes loaded with a small corpus, micusp_mini
+# Here will take the first 10 texts and create a quanteda corpus object
+micusp_corpus <- quanteda::corpus(micusp_mini[1:10,])
+
+# Parse using spacyr; that that we need dependency set to TRUE
+micusp_prsd <- spacy_parse(micusp_corpus, pos = T, tag = T, dependency = T, entity = F)
+
+# Aggregate the features into a data.frame
+df_biber <- biber_parse(micusp_prsd)
+```
+
+
+
 The following table is adapted from one created by [Stefan Evert](https://www.rdocumentation.org/packages/corpora/versions/0.5/topics/BNCbiber).
 
 <table><tbody><tr><td>
