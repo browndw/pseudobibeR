@@ -246,7 +246,7 @@ The following table is adapted from one created by [Stefan Evert](https://www.rd
      <code>f_64_phrasal_coordination</code> </td>
 <td> Phrasal co-ordination (N <em>and</em> N; Adj <em>and</em> Adj; V <em>and</em> V; Adv <em>and</em> Adv) </td>
 </tr><tr><td>
-     <em>n/a</em> </td>
+     <code>f_65_clausal_coordination</code> </td>
 <td> Independent clause co-ordination (clause-initial <em>and</em>) </td>
 </tr><tr><td>
      </td>
