@@ -23,8 +23,6 @@ biber_parse <- function(spacy_tks){
   if ("tag" %in% colnames(spacy_tks) == F) stop ("be sure to set 'tag = T' when using spacy_parse")
   if ("pos" %in% colnames(spacy_tks) == F) stop ("be sure to set 'pos = T' when using spacy_parse")
 
-  load("data/word_lists.rda")
-  load("data/dict.rda")
   dict <- quanteda::dictionary(dict)
 
   df <- NULL
