@@ -228,7 +228,7 @@ The following table is adapted from one created by [Stefan Evert](https://www.rd
      <code>f_59_contractions</code> </td>
 <td> Contractions </td>
 </tr><tr><td>               
-     <em>n/a</em> </td>
+     <code>f_60_that_deletion</code> </td>
 <td> Subordinator <em>that</em> deletion (e.g., <em>I think [that] he went.</em>) </td>
 </tr><tr><td>
      <code>f_61_stranded_preposition</code> </td>
