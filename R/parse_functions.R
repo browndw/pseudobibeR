@@ -523,7 +523,8 @@ biber_parse <- function(spacy_tks){
   biber_counts <- dplyr::full_join(biber_counts, tot_counts, by = "doc_id")
 
   biber_counts <- biber_counts %>%
-    dplyr::mutate_if(is.numeric, list((~./tot_counts)*1000), na.rm = TRUE)
+    dplyr::mutate_if(is.numeric, list(~./tot_counts), na.rm = TRUE) %>%
+    dplyr::mutate_if(is.numeric, list(~.*1000), na.rm = TRUE)
 
   f_43_type_token <- quanteda.textstats::textstat_lexdiv(biber_tks, measure = "MSTTR") %>%
     dplyr::rename(doc_id = document, f_43_type_token = MSTTR)
