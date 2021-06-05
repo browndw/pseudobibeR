@@ -380,14 +380,6 @@ biber_parse <- function(spacy_tks){
     dplyr::tally() %>%
     dplyr::rename(f_41_adj_pred = n)
 
-  df[["f_44_mean_word_length"]] <- spacy_tks %>%
-    dplyr::filter(
-      stringr::str_detect(token, "^[a-z]+$")
-    ) %>%
-    dplyr::mutate(mean_word_length = stringr::str_length(token)) %>%
-    dplyr::group_by(doc_id) %>%
-    dplyr::summarise(f_44_mean_word_length = mean(mean_word_length))
-
   df[["f_51_demonstratives"]] <- spacy_tks %>%
     dplyr::filter(
       token %in% word_lists$pronoun_matchlist,
@@ -526,10 +518,20 @@ biber_parse <- function(spacy_tks){
     dplyr::mutate_if(is.numeric, list(~./tot_counts), na.rm = TRUE) %>%
     dplyr::mutate_if(is.numeric, list(~.*1000), na.rm = TRUE)
 
-  f_43_type_token <- quanteda.textstats::textstat_lexdiv(biber_tks, measure = "MSTTR") %>%
-    dplyr::rename(doc_id = document, f_43_type_token = MSTTR)
+  f_43_type_token <- quanteda.textstats::textstat_lexdiv(biber_tks, measure = "MATTR") %>%
+    dplyr::rename(doc_id = document, f_43_type_token = MATTR)
+  
+  f_44_mean_word_length <- spacy_tks %>%
+    dplyr::filter(
+      stringr::str_detect(token, "^[a-z]+$")
+    ) %>%
+    dplyr::mutate(mean_word_length = stringr::str_length(token)) %>%
+    dplyr::group_by(doc_id) %>%
+    dplyr::summarise(f_44_mean_word_length = mean(mean_word_length))
 
   biber_counts <- dplyr::full_join(biber_counts, f_43_type_token, by = "doc_id")
+  
+  biber_counts <- dplyr::full_join(biber_counts, f_44_mean_word_length, by = "doc_id")
 
   biber_counts <- biber_counts %>%
     dplyr::select(order(colnames(biber_counts)), -tot_counts)
