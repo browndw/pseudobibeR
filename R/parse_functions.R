@@ -15,7 +15,6 @@
 #' @param spacy_tks A data.frame of tokens created by spacyr
 #' @return A data.frame of feature counts
 #' @export
-
 biber_parse <- function(spacy_tks){
 
   if ("spacyr_parsed" %in% class(spacy_tks) == F) stop ("biber_parse only works on spacyr parsed objects")
@@ -535,6 +534,8 @@ biber_parse <- function(spacy_tks){
 
   biber_counts <- biber_counts %>%
     dplyr::select(order(colnames(biber_counts)), -tot_counts)
+  
+  biber_counts[] <- lapply(biber_counts, as.vector)
 
   return(biber_counts)
 
