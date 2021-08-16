@@ -39,8 +39,8 @@ biber_parse <- function(spacy_tks){
     dplyr::mutate(pos = ifelse(token == "\n", "PUNCT", pos)) %>%
     dplyr::filter(pos != "SPACE")
 
-  biber_1 <- quanteda::dfm(biber_tks) %>%
-    quanteda::dfm_lookup(dictionary = dict) %>%
+  biber_1 <- quanteda::tokens_lookup(biber_tks, dictionary = dict) %>%
+    quanteda::dfm() %>%
     quanteda::convert(to = "data.frame") %>%
     dplyr::as_tibble()
 
