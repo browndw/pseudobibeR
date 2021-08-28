@@ -554,7 +554,7 @@ biber_spacy <- function(spacy_tks){
 #' The function returns a data.frame of normalized counts.
 #'
 #' @importFrom magrittr %>%
-#' @param spacy_tks A data.frame of tokens created by spacyr
+#' @param udpipe_tks A data.frame of tokens created by spacyr
 #' @return A data.frame of feature counts
 #' @export
 biber_udpipe <- function(udpipe_tks){
