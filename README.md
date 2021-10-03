@@ -283,6 +283,9 @@ The following table is adapted from one created by [Stefan Evert](https://www.rd
 </tr><tr><td>
      <code>f_66_neg_synthetic</code> </td>
 <td> Synthetic negation (e.g., <em>No answer is good enough for Jones.</em>) </td>
+</tr><tr><td>
+     <code>f_67_neg_analytic</code> </td>
+<td> Analytic negation (e.g., <em>That isn't good enough.</em>) </td>
 </tr></tbody></table>
 
 **References**
