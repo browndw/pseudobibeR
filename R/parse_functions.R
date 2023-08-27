@@ -500,7 +500,14 @@ biber_spacy <- function(spacy_tks){
     quanteda::tokens_remove("\\d_", valuetype = "regex") %>%
     quanteda::tokens_remove("_punct_", valuetype = "fixed")
 
-
+  if (min(quanteda::ntoken(biber_tks)) < 200){
+    message("Setting type-to-token ratio to TTR")
+    TTR <- "TTR"
+  } else {
+    message("Setting type-to-token ratio to MATTR")
+    TTR <- "MATTR"
+  }
+  
   biber_2 <- df %>% purrr::reduce(dplyr::full_join, by = "doc_id")
 
   biber_counts <- dplyr::full_join(biber_1, biber_2, by = "doc_id" )%>%
@@ -517,8 +524,8 @@ biber_spacy <- function(spacy_tks){
     dplyr::mutate_if(is.numeric, list(~./tot_counts), na.rm = TRUE) %>%
     dplyr::mutate_if(is.numeric, list(~.*1000), na.rm = TRUE)
 
-  f_43_type_token <- quanteda.textstats::textstat_lexdiv(biber_tks, measure = "MATTR") %>%
-    dplyr::rename(doc_id = document, f_43_type_token = MATTR)
+  f_43_type_token <- quanteda.textstats::textstat_lexdiv(biber_tks, measure = TTR) %>%
+    dplyr::rename(doc_id = document, f_43_type_token := !!TTR)
   
   f_44_mean_word_length <- spacy_tks %>%
     dplyr::filter(
@@ -1050,6 +1057,13 @@ biber_udpipe <- function(udpipe_tks){
     quanteda::tokens_remove("\\d_", valuetype = "regex") %>%
     quanteda::tokens_remove("_punct_", valuetype = "fixed")
   
+  if (min(quanteda::ntoken(biber_tks)) < 200){
+    message("Setting type-to-token ratio to TTR")
+    TTR <- "TTR"
+  } else {
+    message("Setting type-to-token ratio to MATTR")
+    TTR <- "MATTR"
+  }
   
   biber_2 <- df %>% purrr::reduce(dplyr::full_join, by = "doc_id")
   
@@ -1067,8 +1081,8 @@ biber_udpipe <- function(udpipe_tks){
     dplyr::mutate_if(is.numeric, list(~./tot_counts), na.rm = TRUE) %>%
     dplyr::mutate_if(is.numeric, list(~.*1000), na.rm = TRUE)
   
-  f_43_type_token <- quanteda.textstats::textstat_lexdiv(biber_tks, measure = "MATTR") %>%
-    dplyr::rename(doc_id = document, f_43_type_token = MATTR)
+  f_43_type_token <- quanteda.textstats::textstat_lexdiv(biber_tks, measure = TTR) %>%
+    dplyr::rename(doc_id = document, f_43_type_token := !!TTR)
   
   f_44_mean_word_length <- udpipe_tks %>%
     dplyr::filter(
