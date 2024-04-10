@@ -2,25 +2,38 @@
 % Please edit documentation in R/parse_functions.R
 \name{biber_spacy}
 \alias{biber_spacy}
-\title{This function takes a spacyr data object that has been
-part-of-speech tagged and dependency parsed and
-extracts counts of features that have been used in
-Douglas Biber's research since the late 1980s.}
+\alias{biber_udpipe}
+\title{Extract Biber features from a document parsed and annotated by spacyr or udpipe}
 \usage{
 biber_spacy(spacy_tks)
+
+biber_udpipe(udpipe_tks)
 }
 \arguments{
-\item{spacy_tks}{A data.frame of tokens created by spacyr}
+\item{spacy_tks}{A \code{data.frame} of tokens created by \code{spacyr::spacy_parse()}}
+
+\item{udpipe_tks}{A list or data frame of tokens parsed by
+\code{udpipe::udpipe_annotate()}.}
 }
 \value{
-A data.frame of feature counts
+A \code{data.frame} of features. Count features are normalized to the rate
+per 1,000 tokens.
 }
 \description{
-Note that function sometimes relies on lists and a dictionary,
-both of which are stored as R data.
-At other times, the function identifies features
-based on local cues, which are approximations.
+Takes data that has been part-of-speech tagged and dependency parsed and
+extracts counts of features that have been used in Douglas Biber's research
+since the late 1980s.
 }
 \details{
-The function returns a data.frame of normalized counts.
+This relies on a feature dictionary (included as \code{dict}) and word lists
+(\code{word_lists}) to match specific features; see their documentation and values
+for details on the exact patterns and words matched by each. The function
+identifies other features based on local cues, which are approximations.
+}
+\references{
+Biber, Douglas (1988). \emph{Variation across Speech and Writing}. Cambridge
+University Press.
+
+Biber, Douglas (1995). \emph{Dimensions of Register Variation: A Cross-Linguistic
+Comparison.} Cambridge University Press.
 }
