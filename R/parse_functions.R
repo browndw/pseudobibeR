@@ -549,7 +549,6 @@ biber_spacy <- function(spacy_tks) {
   biber_counts[] <- lapply(biber_counts, as.vector)
 
   return(biber_counts)
-
 }
 
 #' @rdname biber_spacy
@@ -558,11 +557,11 @@ biber_spacy <- function(spacy_tks) {
 #' @export
 biber_udpipe <- function(udpipe_tks) {
 
-  if (!inherits(udpipe_tks, "udpipe_connlu")) udpipe_tks <- data.frame(udpipe_tks, stringsAsFactors = F)
+  if (inherits(udpipe_tks, "udpipe_connlu")) udpipe_tks <- data.frame(udpipe_tks, stringsAsFactors = F)
 
-  if ("dep_rel" %in% colnames(udpipe_tks) == F) stop ("Be sure to set parser = 'default'")
-  if ("xpos" %in% colnames(udpipe_tks) == F) stop ("Be sure to set tagger = 'default'")
-  if ("upos" %in% colnames(udpipe_tks) == F) stop ("Be sure to set tagger = 'default'")
+  if ("dep_rel" %in% colnames(udpipe_tks) == F) stop("Be sure to set parser = 'default'")
+  if ("xpos" %in% colnames(udpipe_tks) == F) stop("Be sure to set tagger = 'default'")
+  if ("upos" %in% colnames(udpipe_tks) == F) stop("Be sure to set tagger = 'default'")
 
   udpipe_tks <- udpipe_tks %>%
     dplyr::select(doc_id, sentence_id, token_id, token, lemma, upos, xpos, head_token_id, dep_rel) %>%
