@@ -29,6 +29,170 @@ This relies on a feature dictionary (included as \code{dict}) and word lists
 (\code{word_lists}) to match specific features; see their documentation and values
 for details on the exact patterns and words matched by each. The function
 identifies other features based on local cues, which are approximations.
+
+The following features are detected.
+\subsection{Tense and aspect markers}{
+
+\describe{
+\item{f_01_past_tense}{Verbs in the past tense.}
+\item{f_02_perfect_aspect}{Verbs in the perfect aspect, indicated by "have" as an auxiliary verb, e.g. "I \emph{have} written this sentence."}
+\item{f_03_present_tense}{Verbs in the present tense.}
+}
+}
+
+\subsection{Place and time adverbials}{
+
+\describe{
+\item{f_04_place_adverbials}{Place adverbials (e.g., \emph{above}, \emph{beside}, \emph{outdoors})}
+\item{f_05_time_adverbials}{Time adverbials (e.g., \emph{early}, \emph{instantly}, \emph{soon})}
+}
+}
+
+\subsection{Pronouns and pro-verbs}{
+
+\describe{
+\item{f_06_first_person_pronouns}{First-person pronouns}
+\item{f_07_second_person_pronouns}{Second-person pronouns}
+\item{f_08_third_person_pronouns}{Third-person personal pronouns (excluding \emph{it})}
+\item{f_09_pronoun_it}{Pronoun \emph{it}}
+\item{f_10_demonstrative_pronoun}{Pronouns being used to replace a noun, e.g. "\emph{That} is an example sentence."}
+\item{f_11_indefinite_pronouns}{Indefinite pronouns (e.g., \emph{anybody}, \emph{nothing}, \emph{someone})}
+\item{f_12_proverb_do}{Pro-verb \emph{do}}
+}
+}
+
+\subsection{Questions}{
+
+\describe{
+\item{f_13_wh_question}{Direct \emph{wh-} questions (e.g., TODO)}
+}
+}
+
+\subsection{Nominal forms}{
+
+\describe{
+\item{f_14_nominalizations}{Nominalizations (nouns ending in \emph{-tion}, \emph{-ment}, \emph{-ness}, \emph{-ity})}
+\item{f_15_gerunds}{Gerunds (participial forms functioning as nouns)}
+\item{f_16_other_nouns}{Total other nouns}
+}
+}
+
+\subsection{Passives}{
+
+\describe{
+\item{f_17_agentless_passives}{Agentless passives (e.g., TODO)}
+\item{f_18_by_passives}{\emph{by-} passives (e.g., TODO)}
+}
+}
+
+\subsection{Stative forms}{
+
+\describe{
+\item{f_19_be_main_verb}{\emph{be} as main verb}
+\item{f_20_existential_there}{Existential \emph{there} (e.g., TODO)}
+}
+}
+
+\subsection{Subordination features}{
+
+\describe{
+\item{f_21_that_verb_comp}{\emph{that} verb complements (e.g., \emph{I said [that he went].})}
+\item{f_22_that_adj_comp}{\emph{that} adjective complements (e.g., \emph{I'm glad [that you like it].})}
+\item{f_23_wh_clause}{\emph{wh-} clauses (e.g., \emph{I believed [what he told me].})}
+\item{f_24_infinitives}{Infinitives}
+\item{f_25_present_participle}{Present participial adverbial clauses (e.g., \emph{[Stuffing his mouth with cookies], Joe ran out the door.})}
+\item{f_26_past_participle}{Past participial adverbial clauses (e.g., \emph{[Built in a single week], the house would stand for fifty years.})}
+\item{f_27_past_participle_whiz}{Past participial postnominal (reduced relative) clauses (e.g., \emph{the solution [produced by this process]})}
+\item{f_28_present_participle_whiz}{Present participial postnominal (reduced relative) clauses (e.g., \emph{the event [causing this decline]})}
+\item{f_29_that_subj}{\emph{that} relative clauses on subject position (e.g., \emph{the dog [that bit me]})}
+\item{f_30_that_obj}{\emph{that} relative clauses on object position (e.g., \emph{the dog [that I saw]})}
+\item{f_31_wh_subj}{\emph{wh-} relatives on subject position (e.g., \emph{the man [who likes popcorn]})}
+\item{f_32_wh_obj}{\emph{wh-} relatives on object position (e.g., \emph{the man [who Sally likes]})}
+\item{f_33_pied_piping}{Pied-piping relative clauses (e.g., \emph{the manner [in which he was told]})}
+\item{f_34_sentence_relatives}{Sentence relatives (e.g., \emph{Bob likes fried mangoes, [which is the most disgusting thing I've ever heard of].})}
+\item{f_35_because}{Causative adverbial subordinator (\emph{because})}
+\item{f_36_though}{Concessive adverbial subordinators (\emph{although}, \emph{though})}
+\item{f_37_if}{Conditional adverbial subordinators (\emph{if}, \emph{unless})}
+\item{f_38_other_adv_sub}{Other adverbial subordinators (e.g., \emph{since}, \emph{while}, \emph{whereas})}
+}
+}
+
+\subsection{Prepositional phrases, adjectives, and adverbs}{
+
+\describe{
+\item{f_39_prepositions}{Total prepositional phrases}
+\item{f_40_adj_attr}{Attributive adjectives (e.g., \emph{the [big] horse})}
+\item{f_41_adj_pred}{Predicative adjectives (e.g., \emph{The horse is [big].})}
+\item{f_42_adverbs}{Total adverbs}
+}
+}
+
+\subsection{Lexical specificity}{
+
+\describe{
+\item{f_43_type_token}{Type-token ratio (including punctuation), using the moving-average type-token ratio (MATTR).}
+\item{f_44_mean_word_length}{Average word length (across tokens, excluding punctuation)}
+}
+}
+
+\subsection{Lexical classes}{
+
+\describe{
+\item{f_45_conjuncts}{Conjuncts (e.g., \emph{consequently}, \emph{furthermore}, \emph{however})}
+\item{f_46_downtoners}{Downtoners (e.g., \emph{barely}, \emph{nearly}, \emph{slightly})}
+\item{f_47_hedges}{Hedges (e.g., \emph{at about}, \emph{something like}, \emph{almost})}
+\item{f_48_amplifiers}{Amplifiers (e.g., \emph{absolutely}, \emph{extremely}, \emph{perfectly})}
+\item{f_49_emphatics}{Emphatics (e.g., \emph{a lot}, \emph{for sure}, \emph{really})}
+\item{f_50_discourse_particles}{Discourse particles (e.g., sentence-initial \emph{well}, \emph{now}, \emph{anyway})}
+\item{f_51_demonstratives}{Demonstratives (e.g., TODO)}
+}
+}
+
+\subsection{Modals}{
+
+\describe{
+\item{f_52_modal_possibility}{Possibility modals (\emph{can}, \emph{may}, \emph{might}, \emph{could})}
+\item{f_53_modal_necessity}{Necessity modals (\emph{ought}, \emph{should}, \emph{must})}
+\item{f_54_modal_predictive}{Predictive modals (\emph{will}, \emph{would}, \emph{shall})}
+}
+}
+
+\subsection{Specialized verb classes}{
+
+\describe{
+\item{f_55_verb_public}{Public verbs (e.g., \emph{assert}, \emph{declare}, \emph{mention})}
+\item{f_56_verb_private}{Private verbs (e.g., \emph{assume}, \emph{believe}, \emph{doubt}, \emph{know})}
+\item{f_57_verb_suasive}{Suasive verbs (e.g., \emph{command}, \emph{insist}, \emph{propose})}
+\item{f_58_verb_seem}{\emph{seem} and \emph{appear}}
+}
+}
+
+\subsection{Reduced forms and dispreferred structures}{
+
+\describe{
+\item{f_59_contractions}{Contractions}
+\item{f_60_that_deletion}{Subordinator \emph{that} deletion (e.g., \emph{I think [he went].})}
+\item{f_61_stranded_preposition}{Stranded prepositions (e.g., \emph{the candidate that I was thinking [of]})}
+\item{f_62_split_infinitve}{Split infinitives (e.g., \emph{He wants [to convincingly prove] that ...})}
+\item{f_63_split_auxiliary}{Split auxiliaries (e.g., \emph{They [were apparently shown] to ...})}
+}
+}
+
+\subsection{Co-ordination}{
+
+\describe{
+\item{f_64_phrasal_coordination}{Phrasal co-ordination (N and N; Adj and Adj; V and V; Adv and Adv)}
+\item{f_65_clausal_coordination}{Independent clause co-ordination (clause-initial \emph{and})}
+}
+}
+
+\subsection{Negation}{
+
+\describe{
+\item{f_66_neg_synthetic}{Synthetic negation (e.g., \emph{No answer is good enough for Jones.})}
+\item{f_67_neg_analytic}{Analytic negation (e.g., \emph{That isn’t good enough.})}
+}
+}
 }
 \references{
 Biber, Douglas (1988). \emph{Variation across Speech and Writing}. Cambridge
@@ -36,4 +200,8 @@ University Press.
 
 Biber, Douglas (1995). \emph{Dimensions of Register Variation: A Cross-Linguistic
 Comparison.} Cambridge University Press.
+
+Covington, M. A., & McFall, J. D. (2010). Cutting the Gordian Knot: The
+Moving-Average Type–Token Ratio (MATTR). \emph{Journal of Quantitative
+Linguistics}, 17(2), 94–100. \doi{10.1080/09296171003643098}
 }

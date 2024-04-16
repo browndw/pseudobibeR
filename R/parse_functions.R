@@ -8,15 +8,175 @@
 #' (`word_lists`) to match specific features; see their documentation and values
 #' for details on the exact patterns and words matched by each. The function
 #' identifies other features based on local cues, which are approximations.
+#' Because they rely on pobablistic taggers provided by spaCy or udpipe, the
+#' accuracy of the resulting counts are dependent on the accuracy of those
+#' models. Thus, texts with irregular spellings, non-normative punctuation, etc.
+#' will likely produce unreliable outputs, unless taggers are tuned specifically
+#' for those purposes.
+#'
+#' The following features are detected. Square brackets in example sentences
+#' indicate the location of the feature.
+#'
+#' ## Tense and aspect markers
+#'
+#' \describe{
+#' \item{f_01_past_tense}{Verbs in the past tense.}
+#' \item{f_02_perfect_aspect}{Verbs in the perfect aspect, indicated by "have" as an auxiliary verb (e.g. *I \[have\] written this sentence.*)"}
+#' \item{f_03_present_tense}{Verbs in the present tense.}
+#' }
+#'
+#' ## Place and time adverbials
+#'
+#' \describe{
+#' \item{f_04_place_adverbials}{Place adverbials (e.g., *above*, *beside*, *outdoors*)}
+#' \item{f_05_time_adverbials}{Time adverbials (e.g., *early*, *instantly*, *soon*)}
+#' }
+#'
+#' ## Pronouns and pro-verbs
+#'
+#' \describe{
+#' \item{f_06_first_person_pronouns}{First-person pronouns}
+#' \item{f_07_second_person_pronouns}{Second-person pronouns}
+#' \item{f_08_third_person_pronouns}{Third-person personal pronouns (excluding *it*)}
+#' \item{f_09_pronoun_it}{Pronoun *it*}
+#' \item{f_10_demonstrative_pronoun}{Pronouns being used to replace a noun (e.g. *\[That\] is an example sentence.*)}
+#' \item{f_11_indefinite_pronouns}{Indefinite pronouns (e.g., *anybody*, *nothing*, *someone*)}
+#' \item{f_12_proverb_do}{Pro-verb *do*}
+#' }
+#'
+#' ## Questions
+#'
+#' \describe{
+#' \item{f_13_wh_question}{Direct *wh-* questions (e.g., TODO)}
+#' }
+#'
+#' ## Nominal forms
+#'
+#' \describe{
+#' \item{f_14_nominalizations}{Nominalizations (nouns ending in *-tion*, *-ment*, *-ness*, *-ity*)}
+#' \item{f_15_gerunds}{Gerunds (participial forms functioning as nouns)}
+#' \item{f_16_other_nouns}{Total other nouns}
+#' }
+#'
+#' ## Passives
+#'
+#' \describe{
+#' \item{f_17_agentless_passives}{Agentless passives (e.g., TODO)}
+#' \item{f_18_by_passives}{*by-* passives (e.g., TODO)}
+#' }
+#'
+#' ## Stative forms
+#'
+#' \describe{
+#' \item{f_19_be_main_verb}{*be* as main verb}
+#' \item{f_20_existential_there}{Existential *there* (e.g., TODO)}
+#' }
+#'
+#' ## Subordination features
+#'
+#' \describe{
+#' \item{f_21_that_verb_comp}{*that* verb complements (e.g., *I said \[that he went\].*)}
+#' \item{f_22_that_adj_comp}{*that* adjective complements (e.g., *I'm glad \[that you like it\].*)}
+#' \item{f_23_wh_clause}{*wh-* clauses (e.g., *I believed \[what he told me\].*)}
+#' \item{f_24_infinitives}{Infinitives}
+#' \item{f_25_present_participle}{Present participial adverbial clauses (e.g., *\[Stuffing his mouth with cookies\], Joe ran out the door.*)}
+#' \item{f_26_past_participle}{Past participial adverbial clauses (e.g., *\[Built in a single week\], the house would stand for fifty years.*)}
+#' \item{f_27_past_participle_whiz}{Past participial postnominal (reduced relative) clauses (e.g., *the solution \[produced by this process\]*)}
+#' \item{f_28_present_participle_whiz}{Present participial postnominal (reduced relative) clauses (e.g., *the event \[causing this decline\]*)}
+#' \item{f_29_that_subj}{*that* relative clauses on subject position (e.g., *the dog \[that bit me\]*)}
+#' \item{f_30_that_obj}{*that* relative clauses on object position (e.g., *the dog \[that I saw\]*)}
+#' \item{f_31_wh_subj}{*wh-* relatives on subject position (e.g., *the man \[who likes popcorn\]*)}
+#' \item{f_32_wh_obj}{*wh-* relatives on object position (e.g., *the man \[who Sally likes\]*)}
+#' \item{f_33_pied_piping}{Pied-piping relative clauses (e.g., *the manner \[in which he was told\]*)}
+#' \item{f_34_sentence_relatives}{Sentence relatives (e.g., *Bob likes fried mangoes, \[which is the most disgusting thing I've ever heard of\].*)}
+#' \item{f_35_because}{Causative adverbial subordinator (*because*)}
+#' \item{f_36_though}{Concessive adverbial subordinators (*although*, *though*)}
+#' \item{f_37_if}{Conditional adverbial subordinators (*if*, *unless*)}
+#' \item{f_38_other_adv_sub}{Other adverbial subordinators (e.g., *since*, *while*, *whereas*)}
+#' }
+#'
+#' ## Prepositional phrases, adjectives, and adverbs
+#'
+#' \describe{
+#' \item{f_39_prepositions}{Total prepositional phrases}
+#' \item{f_40_adj_attr}{Attributive adjectives (e.g., *the \[big\] horse*)}
+#' \item{f_41_adj_pred}{Predicative adjectives (e.g., *The horse is \[big\].*)}
+#' \item{f_42_adverbs}{Total adverbs}
+#' }
+#'
+#' ## Lexical specificity
+#'
+#' \describe{
+#' \item{f_43_type_token}{Type-token ratio (including punctuation), using the moving-average type-token ratio (MATTR).}
+#' \item{f_44_mean_word_length}{Average word length (across tokens, excluding punctuation)}
+#' }
+#'
+#' ## Lexical classes
+#'
+#' \describe{
+#' \item{f_45_conjuncts}{Conjuncts (e.g., *consequently*, *furthermore*, *however*)}
+#' \item{f_46_downtoners}{Downtoners (e.g., *barely*, *nearly*, *slightly*)}
+#' \item{f_47_hedges}{Hedges (e.g., *at about*, *something like*, *almost*)}
+#' \item{f_48_amplifiers}{Amplifiers (e.g., *absolutely*, *extremely*, *perfectly*)}
+#' \item{f_49_emphatics}{Emphatics (e.g., *a lot*, *for sure*, *really*)}
+#' \item{f_50_discourse_particles}{Discourse particles (e.g., sentence-initial *well*, *now*, *anyway*)}
+#' \item{f_51_demonstratives}{Demonstratives (e.g., TODO)}
+#' }
+#'
+#' ## Modals
+#'
+#' \describe{
+#' \item{f_52_modal_possibility}{Possibility modals (*can*, *may*, *might*, *could*)}
+#' \item{f_53_modal_necessity}{Necessity modals (*ought*, *should*, *must*)}
+#' \item{f_54_modal_predictive}{Predictive modals (*will*, *would*, *shall*)}
+#' }
+#'
+#' ## Specialized verb classes
+#'
+#' \describe{
+#' \item{f_55_verb_public}{Public verbs (e.g., *assert*, *declare*, *mention*)}
+#' \item{f_56_verb_private}{Private verbs (e.g., *assume*, *believe*, *doubt*, *know*)}
+#' \item{f_57_verb_suasive}{Suasive verbs (e.g., *command*, *insist*, *propose*)}
+#' \item{f_58_verb_seem}{*seem* and *appear*}
+#' }
+#'
+#' ## Reduced forms and dispreferred structures
+#'
+#' \describe{
+#' \item{f_59_contractions}{Contractions}
+#' \item{f_60_that_deletion}{Subordinator *that* deletion (e.g., *I think \[he went\].*)}
+#' \item{f_61_stranded_preposition}{Stranded prepositions (e.g., *the candidate that I was thinking \[of\]*)}
+#' \item{f_62_split_infinitve}{Split infinitives (e.g., *He wants \[to convincingly prove\] that ...*)}
+#' \item{f_63_split_auxiliary}{Split auxiliaries (e.g., *They \[were apparently shown\] to ...*)}
+#' }
+#'
+#' ## Co-ordination
+#'
+#' \describe{
+#' \item{f_64_phrasal_coordination}{Phrasal co-ordination (N and N; Adj and Adj; V and V; Adv and Adv)}
+#' \item{f_65_clausal_coordination}{Independent clause co-ordination (clause-initial *and*)}
+#' }
+#'
+#' ## Negation
+#'
+#' \describe{
+#' \item{f_66_neg_synthetic}{Synthetic negation (e.g., *No answer is good enough for Jones.*)}
+#' \item{f_67_neg_analytic}{Analytic negation (e.g., *That isn't good enough.*)}
+#' }
 #'
 #' @param spacy_tks A `data.frame` of tokens created by `spacyr::spacy_parse()`
-#' @return A `data.frame` of features. Count features are normalized to the rate
-#'   per 1,000 tokens.
-#' @references Biber, Douglas (1988). *Variation across Speech and Writing*. Cambridge
-#'   University Press.
+#' @return A `data.frame` of features containing one row per document and one
+#'   column per feature. Count features are normalized to the rate per 1,000
+#'   tokens.
+#' @references Biber, Douglas (1988). *Variation across Speech and Writing*.
+#'   Cambridge University Press.
 #'
 #' Biber, Douglas (1995). *Dimensions of Register Variation: A Cross-Linguistic
 #' Comparison.* Cambridge University Press.
+#'
+#' Covington, M. A., & McFall, J. D. (2010). Cutting the Gordian Knot: The
+#' Moving-Average Type–Token Ratio (MATTR). *Journal of Quantitative
+#' Linguistics*, 17(2), 94–100. \doi{10.1080/09296171003643098}
 #' @importFrom magrittr %>%
 #' @export
 biber_spacy <- function(spacy_tks) {
