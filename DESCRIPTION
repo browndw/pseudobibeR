@@ -8,7 +8,7 @@ Authors@R:
            email = "dwb2@andrew.cmu.edu",
            comment = c(ORCID = "0000-0001-7745-6354"))
 Description: What the package does (one paragraph).
-License: `use_mit_license()`
+License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.1
