@@ -5,19 +5,23 @@
 \alias{biber_udpipe}
 \title{Extract Biber features from a document parsed and annotated by spacyr or udpipe}
 \usage{
-biber_spacy(spacy_tks)
+biber_spacy(spacy_tks, normalize = TRUE)
 
-biber_udpipe(udpipe_tks)
+biber_udpipe(udpipe_tks, normalize = TRUE)
 }
 \arguments{
 \item{spacy_tks}{A \code{data.frame} of tokens created by \code{spacyr::spacy_parse()}}
+
+\item{normalize}{If \code{TRUE}, count features are normalized to the rate per
+1,000 tokens.}
 
 \item{udpipe_tks}{A list or data frame of tokens parsed by
 \code{udpipe::udpipe_annotate()}.}
 }
 \value{
-A \code{data.frame} of features. Count features are normalized to the rate
-per 1,000 tokens.
+A \code{data.frame} of features containing one row per document and one
+column per feature. If \code{normalize} is \code{TRUE}, count features are normalized
+to the rate per 1,000 tokens.
 }
 \description{
 Takes data that has been part-of-speech tagged and dependency parsed and
@@ -29,13 +33,19 @@ This relies on a feature dictionary (included as \code{dict}) and word lists
 (\code{word_lists}) to match specific features; see their documentation and values
 for details on the exact patterns and words matched by each. The function
 identifies other features based on local cues, which are approximations.
+Because they rely on pobablistic taggers provided by spaCy or udpipe, the
+accuracy of the resulting counts are dependent on the accuracy of those
+models. Thus, texts with irregular spellings, non-normative punctuation, etc.
+will likely produce unreliable outputs, unless taggers are tuned specifically
+for those purposes.
 
-The following features are detected.
+The following features are detected. Square brackets in example sentences
+indicate the location of the feature.
 \subsection{Tense and aspect markers}{
 
 \describe{
 \item{f_01_past_tense}{Verbs in the past tense.}
-\item{f_02_perfect_aspect}{Verbs in the perfect aspect, indicated by "have" as an auxiliary verb, e.g. "I \emph{have} written this sentence."}
+\item{f_02_perfect_aspect}{Verbs in the perfect aspect, indicated by "have" as an auxiliary verb (e.g. \emph{I [have] written this sentence.})"}
 \item{f_03_present_tense}{Verbs in the present tense.}
 }
 }
@@ -55,7 +65,7 @@ The following features are detected.
 \item{f_07_second_person_pronouns}{Second-person pronouns}
 \item{f_08_third_person_pronouns}{Third-person personal pronouns (excluding \emph{it})}
 \item{f_09_pronoun_it}{Pronoun \emph{it}}
-\item{f_10_demonstrative_pronoun}{Pronouns being used to replace a noun, e.g. "\emph{That} is an example sentence."}
+\item{f_10_demonstrative_pronoun}{Pronouns being used to replace a noun (e.g. \emph{[That] is an example sentence.})}
 \item{f_11_indefinite_pronouns}{Indefinite pronouns (e.g., \emph{anybody}, \emph{nothing}, \emph{someone})}
 \item{f_12_proverb_do}{Pro-verb \emph{do}}
 }
@@ -190,13 +200,13 @@ The following features are detected.
 
 \describe{
 \item{f_66_neg_synthetic}{Synthetic negation (e.g., \emph{No answer is good enough for Jones.})}
-\item{f_67_neg_analytic}{Analytic negation (e.g., \emph{That isn’t good enough.})}
+\item{f_67_neg_analytic}{Analytic negation (e.g., \emph{That isn't good enough.})}
 }
 }
 }
 \references{
-Biber, Douglas (1988). \emph{Variation across Speech and Writing}. Cambridge
-University Press.
+Biber, Douglas (1988). \emph{Variation across Speech and Writing}.
+Cambridge University Press.
 
 Biber, Douglas (1995). \emph{Dimensions of Register Variation: A Cross-Linguistic
 Comparison.} Cambridge University Press.
