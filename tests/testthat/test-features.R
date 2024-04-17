@@ -21,7 +21,7 @@ check_features <- list(
     f_41_adj_pred = 1
   ),
   initial_demonstrative = list(
-    f_51_demonstratives = 1
+    f_10_demonstrative_pronoun = 1
   ),
   subordinator_that = list(
     f_60_that_deletion = 1

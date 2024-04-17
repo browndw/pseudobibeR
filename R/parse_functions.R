@@ -221,13 +221,13 @@ biber_spacy <- function(spacy_tks, normalize = TRUE) {
 
 
   df[["f_10_demonstrative_pronoun"]] <- spacy_tks %>%
+    dplyr::group_by(doc_id) %>%
     dplyr::filter(
       stringr::str_detect(tag, "DT") == T,
-      dplyr::lag(stringr::str_detect(tag, "^N|^CD|DT") == F),
+      dplyr::lag(stringr::str_detect(tag, "^N|^CD|DT") == F, default = TRUE),
       stringr::str_detect(dep_rel, "nsub|dobj|pobj") == T
     ) %>%
     dplyr::filter(token %in% pseudobibeR::word_lists$pronoun_matchlist) %>%
-    dplyr::group_by(doc_id) %>%
     dplyr::tally() %>%
     dplyr::rename(f_10_demonstrative_pronoun = n)
 
@@ -764,13 +764,13 @@ biber_udpipe <- function(udpipe_tks, normalize = TRUE) {
 
 
   df[["f_10_demonstrative_pronoun"]] <- udpipe_tks %>%
+    dplyr::group_by(doc_id) %>%
     dplyr::filter(
       stringr::str_detect(tag, "DT") == T,
-      dplyr::lag(stringr::str_detect(tag, "^N|^CD|DT") == F),
+      dplyr::lag(stringr::str_detect(tag, "^N|^CD|DT") == F, default = TRUE),
       stringr::str_detect(dep_rel, "nsubj|obj|obl|conj|nmod") == T
     ) %>%
     dplyr::filter(token %in% pseudobibeR::word_lists$pronoun_matchlist) %>%
-    dplyr::group_by(doc_id) %>%
     dplyr::tally() %>%
     dplyr::rename(f_10_demonstrative_pronoun = n)
 
