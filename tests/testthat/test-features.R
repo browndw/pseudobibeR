@@ -1,11 +1,18 @@
+# we don't call udpipe functions directly, but biber_udpipe() depends on its
+# method for conversion to data frame
 library(udpipe)
 
 udp <- readRDS(test_path("text-samples/udpipe-samples.rds"))
-
 udp_biber <- biber_udpipe(udp, normalize = FALSE)
 
+spcy <- readRDS(test_path("text-samples/spacy-samples.rds"))
+spacy_biber <- biber_spacy(spcy, normalize = FALSE)
+
 # Features to check. Named list. Names are the sample documents, as given in
-# samples.tsv. Values are lists of named features and the counts to expect.
+# samples.tsv. Values are lists of named features and the counts to expect. Set
+# `spacy = FALSE` or `biber = FALSE` to indicate the document tests should be
+# skipped for that tagger, e.g. because the model fails to detect a feature for
+# this particular sample.
 check_features <- list(
   quickbrown = list(
     f_03_present_tense = 1
@@ -37,17 +44,26 @@ check_features <- list(
 )
 
 for (doc_id in names(check_features)) {
-  document <- udp_biber[udp_biber$doc_id == doc_id, ]
+  document_biber <- udp_biber[udp_biber$doc_id == doc_id, ]
+  document_spacy <- spacy_biber[spacy_biber$doc_id == doc_id, ]
 
   test_that(paste0("document: ", doc_id), {
     # make sure this doc_id exists
-    expect_equal(nrow(document), 1)
+    expect_equal(nrow(document_biber), 1)
+    expect_equal(nrow(document_spacy), 1)
 
     features <- check_features[[doc_id]]
 
     for (feature in names(features)) {
-      expect_true(feature %in% names(document))
-      expect_equal(document[[!! feature]], features[[!! feature]])
+      expect_true(feature %in% names(document_biber))
+      if (!isFALSE(features$biber)) {
+        expect_equal(document_biber[[!! feature]], features[[!! feature]])
+      }
+
+      expect_true(feature %in% names(document_spacy))
+      if (!isFALSE(features$spacy)) {
+        expect_equal(document_spacy[[!! feature]], features[[!! feature]])
+      }
     }
   })
 }
