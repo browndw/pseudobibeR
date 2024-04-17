@@ -679,17 +679,15 @@ biber_spacy <- function(spacy_tks, normalize = TRUE) {
   biber_counts <- dplyr::full_join(biber_1, biber_2, by = "doc_id" )%>%
     replace(is.na(.), 0)
 
-  tot_counts <- quanteda::ntoken(biber_tks) %>%
-    data.frame(tot_counts = .) %>%
-    tibble::rownames_to_column("doc_id") %>%
-    dplyr::as_tibble()
-
-  biber_counts <- dplyr::full_join(biber_counts, tot_counts, by = "doc_id")
-
   if (normalize) {
-    biber_counts <- biber_counts %>%
-      dplyr::mutate_if(is.numeric, list(~./tot_counts), na.rm = TRUE) %>%
-      dplyr::mutate_if(is.numeric, list(~.*1000), na.rm = TRUE)
+    tot_counts <- quanteda::ntoken(biber_tks) %>%
+      data.frame(tot_counts = .) %>%
+      tibble::rownames_to_column("doc_id") %>%
+      dplyr::as_tibble()
+
+    biber_counts <- dplyr::full_join(biber_counts, tot_counts, by = "doc_id")
+
+    biber_counts <- normalize_counts(biber_counts)
   }
 
   f_43_type_token <- quanteda.textstats::textstat_lexdiv(biber_tks, measure = TTR) %>%
@@ -708,7 +706,7 @@ biber_spacy <- function(spacy_tks, normalize = TRUE) {
   biber_counts <- dplyr::full_join(biber_counts, f_44_mean_word_length, by = "doc_id")
 
   biber_counts <- biber_counts %>%
-    dplyr::select(order(colnames(biber_counts)), -tot_counts)
+    dplyr::select(order(colnames(biber_counts)))
 
   biber_counts[] <- lapply(biber_counts, as.vector)
 
@@ -1225,17 +1223,15 @@ biber_udpipe <- function(udpipe_tks, normalize = TRUE) {
   biber_counts <- dplyr::full_join(biber_1, biber_2, by = "doc_id" )%>%
     replace(is.na(.), 0)
 
-  tot_counts <- quanteda::ntoken(biber_tks) %>%
-    data.frame(tot_counts = .) %>%
-    tibble::rownames_to_column("doc_id") %>%
-    dplyr::as_tibble()
-
-  biber_counts <- dplyr::full_join(biber_counts, tot_counts, by = "doc_id")
-
   if (normalize) {
-    biber_counts <- biber_counts %>%
-      dplyr::mutate_if(is.numeric, list(~./tot_counts), na.rm = TRUE) %>%
-      dplyr::mutate_if(is.numeric, list(~.*1000), na.rm = TRUE)
+    tot_counts <- quanteda::ntoken(biber_tks) %>%
+      data.frame(tot_counts = .) %>%
+      tibble::rownames_to_column("doc_id") %>%
+      dplyr::as_tibble()
+
+    biber_counts <- dplyr::full_join(biber_counts, tot_counts, by = "doc_id")
+
+    biber_counts <- normalize_counts(biber_counts)
   }
 
   f_43_type_token <- quanteda.textstats::textstat_lexdiv(biber_tks, measure = TTR) %>%
@@ -1254,10 +1250,23 @@ biber_udpipe <- function(udpipe_tks, normalize = TRUE) {
   biber_counts <- dplyr::full_join(biber_counts, f_44_mean_word_length, by = "doc_id")
 
   biber_counts <- biber_counts %>%
-    dplyr::select(order(colnames(biber_counts)), -tot_counts)
+    dplyr::select(order(colnames(biber_counts)))
 
   biber_counts[] <- lapply(biber_counts, as.vector)
 
   return(biber_counts)
+}
 
+#' Normalize to counts per 1,000 tokens
+#'
+#' @param counts Data frame with numeric columns for counts of token, with one
+#'   row per document. Must include a `tot_counts` column with the total number
+#'   of tokens per document.
+#' @return `counts` data frame with counts normalized to rate per 1,000 tokens,
+#'   and `tot_counts` column removed
+#' @keywords internal
+normalize_counts <- function(counts) {
+  counts %>%
+    dplyr::mutate(dplyr::across(where(is.numeric), ~ 1000 * . / tot_counts)) %>%
+    dplyr::select(-tot_counts)
 }
