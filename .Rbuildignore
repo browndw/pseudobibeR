@@ -1,1 +1,1 @@
-tests/testthat/text-samples/*.udpipe
+^tests/testthat/text-samples/(.+).udpipe$

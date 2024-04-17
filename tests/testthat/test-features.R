@@ -1,6 +1,6 @@
 library(udpipe)
 
-udp <- readRDS("text-samples/udpipe-samples.rds")
+udp <- readRDS(test_path("text-samples/udpipe-samples.rds"))
 
 udp_biber <- biber_udpipe(udp, normalize = FALSE)
 
