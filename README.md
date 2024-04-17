@@ -15,3 +15,20 @@ devtools::install_github("browndw/pseudobibeR")
 ```
 
 The package documentation is available on [readthedocs](https://cmu-textstat-docs.readthedocs.io/en/latest/pseudobibeR/pseudobibeR.html)
+
+## Testing
+
+pseudobibR uses [testthat](https://testthat.r-lib.org/) for unit testing. To
+avoid having to distribute spacy or updipe models for tests -- as these models
+can be many megabytes -- the tests use saved output. Specifically, in the
+`tests/testthat/text-samples/` directory,
+
+- `samples.tsv` contains sample sentences for tests. Each line contains a
+  document ID and then a sample text, separated by a tab character.
+- `parse-samples.R` can be run to parse these sentences and save them to an RDS
+  file.
+- The unit tests then use the saved parsed sentences, which are distributed as
+  part of the package.
+
+If you update `samples.tsv`, you must run `parse-samples.R` to get the new
+parsed sentences.

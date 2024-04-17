@@ -165,9 +165,11 @@
 #' }
 #'
 #' @param spacy_tks A `data.frame` of tokens created by `spacyr::spacy_parse()`
+#' @param normalize If `TRUE`, count features are normalized to the rate per
+#'   1,000 tokens.
 #' @return A `data.frame` of features containing one row per document and one
-#'   column per feature. Count features are normalized to the rate per 1,000
-#'   tokens.
+#'   column per feature. If `normalize` is `TRUE`, count features are normalized
+#'   to the rate per 1,000 tokens.
 #' @references Biber, Douglas (1988). *Variation across Speech and Writing*.
 #'   Cambridge University Press.
 #'
@@ -179,7 +181,7 @@
 #' Linguistics*, 17(2), 94–100. \doi{10.1080/09296171003643098}
 #' @importFrom magrittr %>%
 #' @export
-biber_spacy <- function(spacy_tks) {
+biber_spacy <- function(spacy_tks, normalize = TRUE) {
 
   if (!inherits(spacy_tks, "spacyr_parsed")) stop("biber_parse only works on spacyr parsed objects")
   if ("dep_rel" %in% colnames(spacy_tks) == F) stop("be sure to set 'dependency = T' when using spacy_parse")
@@ -684,9 +686,11 @@ biber_spacy <- function(spacy_tks) {
 
   biber_counts <- dplyr::full_join(biber_counts, tot_counts, by = "doc_id")
 
-  biber_counts <- biber_counts %>%
-    dplyr::mutate_if(is.numeric, list(~./tot_counts), na.rm = TRUE) %>%
-    dplyr::mutate_if(is.numeric, list(~.*1000), na.rm = TRUE)
+  if (normalize) {
+    biber_counts <- biber_counts %>%
+      dplyr::mutate_if(is.numeric, list(~./tot_counts), na.rm = TRUE) %>%
+      dplyr::mutate_if(is.numeric, list(~.*1000), na.rm = TRUE)
+  }
 
   f_43_type_token <- quanteda.textstats::textstat_lexdiv(biber_tks, measure = TTR) %>%
     dplyr::rename(doc_id = document, f_43_type_token := !!TTR)
@@ -715,7 +719,7 @@ biber_spacy <- function(spacy_tks) {
 #' @param udpipe_tks A list or data frame of tokens parsed by
 #'   `udpipe::udpipe_annotate()`.
 #' @export
-biber_udpipe <- function(udpipe_tks) {
+biber_udpipe <- function(udpipe_tks, normalize = TRUE) {
 
   if (inherits(udpipe_tks, "udpipe_connlu")) udpipe_tks <- data.frame(udpipe_tks, stringsAsFactors = F)
 
@@ -1228,9 +1232,11 @@ biber_udpipe <- function(udpipe_tks) {
 
   biber_counts <- dplyr::full_join(biber_counts, tot_counts, by = "doc_id")
 
-  biber_counts <- biber_counts %>%
-    dplyr::mutate_if(is.numeric, list(~./tot_counts), na.rm = TRUE) %>%
-    dplyr::mutate_if(is.numeric, list(~.*1000), na.rm = TRUE)
+  if (normalize) {
+    biber_counts <- biber_counts %>%
+      dplyr::mutate_if(is.numeric, list(~./tot_counts), na.rm = TRUE) %>%
+      dplyr::mutate_if(is.numeric, list(~.*1000), na.rm = TRUE)
+  }
 
   f_43_type_token <- quanteda.textstats::textstat_lexdiv(biber_tks, measure = TTR) %>%
     dplyr::rename(doc_id = document, f_43_type_token := !!TTR)

@@ -23,3 +23,7 @@ Imports:
     stringr,
     tibble,
     magrittr
+Suggests:
+    testthat (>= 3.0.0),
+    udpipe
+Config/testthat/edition: 3
