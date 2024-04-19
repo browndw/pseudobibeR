@@ -535,7 +535,7 @@ biber_spacy <- function(spacy_tks, normalize = TRUE) {
 
   df[["f_41_adj_pred"]] <- spacy_tks %>%
     dplyr::filter(
-      pos == "ADJ" & dplyr::lag(pos == "VERB"),
+      pos == "ADJ" & dplyr::lag(pos == "VERB" | pos == "AUX"),
       dplyr::lag(lemma %in% pseudobibeR::word_lists$linking_matchlist),
       dplyr::lead(pos != "NOUN"),
       dplyr::lead(pos != "ADJ"),
@@ -1079,7 +1079,7 @@ biber_udpipe <- function(udpipe_tks, normalize = TRUE) {
 
   df[["f_41_adj_pred"]] <- udpipe_tks %>%
     dplyr::filter(
-      pos == "ADJ" & dplyr::lag(pos == "VERB"),
+      pos == "ADJ" & dplyr::lag(pos == "VERB" | pos == "AUX"),
       dplyr::lag(lemma %in% pseudobibeR::word_lists$linking_matchlist),
       dplyr::lead(pos != "NOUN"),
       dplyr::lead(pos != "ADJ"),
