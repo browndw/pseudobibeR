@@ -9,13 +9,13 @@ udp <- readRDS(test_path("text-samples/udpipe-samples.rds"))
 spcy <- readRDS(test_path("text-samples/spacy-samples.rds"))
 
 test_that("counts are unchanged", {
-  expect_snapshot_value(biber(udp, normalize = FALSE),
+  expect_snapshot_value(suppressMessages(biber(udp, normalize = FALSE)),
                         style = "json2")
-  expect_snapshot_value(biber(spcy, normalize = FALSE),
+  expect_snapshot_value(suppressMessages(biber(spcy, normalize = FALSE)),
                         style = "json2")
 })
 
 test_that("normalized output is unchanged", {
-  expect_snapshot_value(biber(udp), style = "json2")
-  expect_snapshot_value(biber(spcy), style = "json2")
+  expect_snapshot_value(suppressMessages(biber(udp)), style = "json2")
+  expect_snapshot_value(suppressMessages(biber(spcy)), style = "json2")
 })
