@@ -243,11 +243,11 @@ parse_biber_features <- function(tokens, normalize, engine = c("spacy", "udpipe"
     dplyr::as_tibble()
 
   df[["f_02_perfect_aspect"]] <- tokens %>%
+    dplyr::group_by(doc_id) %>%
     dplyr::filter(
       lemma == "have",
       stringr::str_detect(dep_rel, "aux") == T
     ) %>%
-    dplyr::group_by(doc_id) %>%
     dplyr::tally() %>%
     dplyr::rename(f_02_perfect_aspect = n)
 
@@ -264,11 +264,11 @@ parse_biber_features <- function(tokens, normalize, engine = c("spacy", "udpipe"
     dplyr::rename(f_10_demonstrative_pronoun = n)
 
   df[["f_12_proverb_do"]] <- tokens %>%
+    dplyr::group_by(doc_id) %>%
     dplyr::filter(
       lemma == "do",
       stringr::str_detect(dep_rel, "aux") == F
     ) %>%
-    dplyr::group_by(doc_id) %>%
     dplyr::tally() %>%
     dplyr::rename(f_12_proverb_do = n)
 
@@ -286,6 +286,7 @@ parse_biber_features <- function(tokens, normalize, engine = c("spacy", "udpipe"
     dplyr::rename(f_13_wh_question = n)
 
   df[["f_14_nominalizations"]] <- tokens %>%
+    dplyr::group_by(doc_id) %>%
     dplyr::filter(
       pos == "NOUN",
       # TODO missing terminal $ below?
@@ -294,7 +295,6 @@ parse_biber_features <- function(tokens, normalize, engine = c("spacy", "udpipe"
     dplyr::filter(
       !token %in% pseudobibeR::word_lists$nominalization_stoplist
     ) %>%
-    dplyr::group_by(doc_id) %>%
     dplyr::tally() %>%
     dplyr::rename(f_14_nominalizations = n)
 
@@ -306,8 +306,8 @@ parse_biber_features <- function(tokens, normalize, engine = c("spacy", "udpipe"
     dplyr::filter(!token %in% pseudobibeR::word_lists$gerund_stoplist)
 
   gerunds_n <- f_15_gerunds %>%
-    dplyr::filter(pos == "NOUN") %>%
     dplyr::group_by(doc_id) %>%
+    dplyr::filter(pos == "NOUN") %>%
     dplyr::tally() %>%
     dplyr::rename(gerunds_n = n)
 
@@ -317,6 +317,7 @@ parse_biber_features <- function(tokens, normalize, engine = c("spacy", "udpipe"
     dplyr::rename(f_15_gerunds = n)
 
   df[["f_16_other_nouns"]] <- tokens %>%
+    dplyr::group_by(doc_id) %>%
     dplyr::filter(
       pos == "NOUN" |
         pos == "PROPN"
@@ -324,7 +325,6 @@ parse_biber_features <- function(tokens, normalize, engine = c("spacy", "udpipe"
     dplyr::filter(
       stringr::str_detect(token, "-") == F
     ) %>%
-    dplyr::group_by(doc_id) %>%
     dplyr::tally() %>%
     dplyr::left_join(df[["f_14_nominalizations"]], by = "doc_id") %>%
     dplyr::left_join(gerunds_n, by = "doc_id") %>%
@@ -356,111 +356,114 @@ parse_biber_features <- function(tokens, normalize, engine = c("spacy", "udpipe"
     dplyr::rename(f_18_by_passives = n)
 
   df[["f_19_be_main_verb"]] <- tokens %>%
+    dplyr::group_by(doc_id) %>%
     dplyr::filter(
       lemma == "be",
       stringr::str_detect(dep_rel, "aux") == F
     ) %>%
-    dplyr::group_by(doc_id) %>%
     dplyr::tally() %>%
     dplyr::rename(f_19_be_main_verb = n)
 
   df[["f_21_that_verb_comp"]] <- tokens %>%
+    dplyr::group_by(doc_id) %>%
     dplyr::filter(
       token == "that",
       pos == "SCONJ",
       dplyr::lag(pos == "VERB")
     ) %>%
-    dplyr::group_by(doc_id) %>%
     dplyr::tally() %>%
     dplyr::rename(f_21_that_verb_comp = n)
 
   df[["f_22_that_adj_comp"]] <- tokens %>%
+    dplyr::group_by(doc_id) %>%
     dplyr::filter(
       token == "that",
       pos == "SCONJ",
       dplyr::lag(pos == "ADJ")
     ) %>%
-    dplyr::group_by(doc_id) %>%
     dplyr::tally() %>%
     dplyr::rename(f_22_that_adj_comp = n)
 
   df[["f_23_wh_clause"]] <- tokens %>%
+    dplyr::group_by(doc_id) %>%
     dplyr::filter(
       stringr::str_detect(tag, "^W") == T,
       token != "which",
       dplyr::lag(pos == "VERB")
     ) %>%
-    dplyr::group_by(doc_id) %>%
     dplyr::tally() %>%
     dplyr::rename(f_23_wh_clause = n)
 
   df[["f_25_present_participle"]] <- tokens %>%
+    dplyr::group_by(doc_id) %>%
     dplyr::filter(
       tag == "VBG",
       (
         dep_rel == "advcl" |
           dep_rel == "ccomp"
       ),
-      dplyr::lag(dep_rel == "punct")
+      # beginning of sentence:
+      dplyr::lag(dep_rel == "punct", default = TRUE)
     ) %>%
-    dplyr::group_by(doc_id) %>%
     dplyr::tally() %>%
     dplyr::rename(f_25_present_participle = n)
 
   df[["f_26_past_participle"]] <- tokens %>%
+    dplyr::group_by(doc_id) %>%
     dplyr::filter(
       tag == "VBN",
       (
         dep_rel == "advcl" |
           dep_rel == "ccomp"
       ),
-      dplyr::lag(dep_rel == "punct")
+      # beginning of sentence:
+      dplyr::lag(dep_rel == "punct", default = TRUE)
     ) %>%
-    dplyr::group_by(doc_id) %>%
     dplyr::tally() %>%
     dplyr::rename(f_26_past_participle = n)
 
   df[["f_27_past_participle_whiz"]] <- tokens %>%
+    dplyr::group_by(doc_id) %>%
     dplyr::filter(
       tag == "VBN",
       dplyr::lag(pos == "NOUN"),
       dep_rel == "acl"
     ) %>%
-    dplyr::group_by(doc_id) %>%
     dplyr::tally() %>%
     dplyr::rename(f_27_past_participle_whiz = n)
 
   df[["f_28_present_participle_whiz"]] <- tokens %>%
+    dplyr::group_by(doc_id) %>%
     dplyr::filter(
       tag == "VBG",
       dplyr::lag(pos == "NOUN"),
       dep_rel == "acl"
     ) %>%
-    dplyr::group_by(doc_id) %>%
     dplyr::tally() %>%
     dplyr::rename(f_28_present_participle_whiz = n)
 
   df[["f_29_that_subj"]] <- tokens %>%
+    dplyr::group_by(doc_id) %>%
     dplyr::filter(
       token == "that",
       dplyr::lag(stringr::str_detect(tag, "^N|^CD|DT") == T),
       stringr::str_detect(dep_rel, "nsubj") == T
     ) %>%
-    dplyr::group_by(doc_id) %>%
     dplyr::tally() %>%
     dplyr::rename(f_29_that_subj = n)
 
   df[["f_30_that_obj"]] <- tokens %>%
+    dplyr::group_by(doc_id) %>%
     dplyr::filter(
       token == "that",
       dplyr::lag(stringr::str_detect(tag, "^N|^CD|DT") == T),
       dep_rel == if (engine == "spacy") "dobj" else "obj"
     ) %>%
-    dplyr::group_by(doc_id) %>%
     dplyr::tally() %>%
     dplyr::rename(f_30_that_obj = n)
 
   df[["f_31_wh_subj"]] <- tokens %>%
+    dplyr::group_by(doc_id) %>%
     dplyr::filter(
       stringr::str_detect(tag, "^W") == T,
       dplyr::lag(lemma != "ask", 2),
@@ -475,11 +478,11 @@ parse_biber_features <- function(tokens, normalize, engine = c("spacy", "udpipe"
       )
     ) %>%
     dplyr::filter(token != "that" & stringr::str_detect(dep_rel, "nsubj")) %>%
-    dplyr::group_by(doc_id) %>%
     dplyr::tally() %>%
     dplyr::rename(f_31_wh_subj = n)
 
   df[["f_32_wh_obj"]] <- tokens %>%
+    dplyr::group_by(doc_id) %>%
     dplyr::filter(
       stringr::str_detect(tag, "^W") == T,
       dplyr::lag(lemma != "ask", 2),
@@ -497,29 +500,29 @@ parse_biber_features <- function(tokens, normalize, engine = c("spacy", "udpipe"
       token != "that",
       stringr::str_detect(dep_rel, "obj") == T
     ) %>%
-    dplyr::group_by(doc_id) %>%
     dplyr::tally() %>%
     dplyr::rename(f_32_wh_obj = n)
 
   df[["f_34_sentence_relatives"]] <- tokens %>%
+    dplyr::group_by(doc_id) %>%
     dplyr::filter(
       token == "which",
       dplyr::lag(pos == "PUNCT")
     ) %>%
-    dplyr::group_by(doc_id) %>%
     dplyr::tally() %>%
     dplyr::rename(f_34_sentence_relatives = n)
 
   df[["f_35_because"]] <- tokens %>%
+    dplyr::group_by(doc_id) %>%
     dplyr::filter(
       token == "because",
       dplyr::lead(token != "of")
     ) %>%
-    dplyr::group_by(doc_id) %>%
     dplyr::tally() %>%
     dplyr::rename(f_35_because = n)
 
   df[["f_38_other_adv_sub"]]<- tokens %>%
+    dplyr::group_by(doc_id) %>%
     dplyr::mutate(pre_token = dplyr::lag(pos)) %>%
     dplyr::filter(
       pos == "SCONJ",
@@ -541,26 +544,26 @@ parse_biber_features <- function(tokens, normalize, engine = c("spacy", "udpipe"
           pre_token == "AUX"
       )
     ) %>%
-    dplyr::group_by(doc_id) %>%
     dplyr::tally() %>%
     dplyr::rename(f_38_other_adv_sub = n)
 
   if (engine == "spacy") {
     df[["f_39_prepositions"]] <- tokens %>%
-      dplyr::filter(dep_rel == "prep") %>%
       dplyr::group_by(doc_id) %>%
+      dplyr::filter(dep_rel == "prep") %>%
       dplyr::tally() %>%
       dplyr::rename(f_39_prepositions = n)
   } else {
     df[["f_39_prepositions"]] <- tokens %>%
+      dplyr::group_by(doc_id) %>%
       dplyr::filter(dep_rel == "case" &
                       tag == "IN") %>%
-      dplyr::group_by(doc_id) %>%
       dplyr::tally() %>%
       dplyr::rename(f_39_prepositions = n)
   }
 
   df[["f_40_adj_attr"]] <- tokens %>%
+    dplyr::group_by(doc_id) %>%
     dplyr::filter(
       pos == "ADJ",
       (
@@ -573,10 +576,11 @@ parse_biber_features <- function(tokens, normalize, engine = c("spacy", "udpipe"
       )
     ) %>%
     dplyr::filter(stringr::str_detect(token, "-") == F) %>%
-    dplyr::group_by(doc_id) %>% dplyr::tally() %>%
+    dplyr::tally() %>%
     dplyr::rename(f_40_adj_attr = n)
 
   df[["f_41_adj_pred"]] <- tokens %>%
+    dplyr::group_by(doc_id) %>%
     dplyr::filter(
       pos == "ADJ" & dplyr::lag(pos == "VERB" | pos == "AUX"),
       dplyr::lag(lemma %in% pseudobibeR::word_lists$linking_matchlist),
@@ -584,20 +588,20 @@ parse_biber_features <- function(tokens, normalize, engine = c("spacy", "udpipe"
       dplyr::lead(pos != "ADJ"),
       dplyr::lead(pos != "ADV")
     ) %>%
-    dplyr::group_by(doc_id) %>%
     dplyr::tally() %>%
     dplyr::rename(f_41_adj_pred = n)
 
   df[["f_51_demonstratives"]] <- tokens %>%
+    dplyr::group_by(doc_id) %>%
     dplyr::filter(
       token %in% pseudobibeR::word_lists$pronoun_matchlist,
       dep_rel == "det"
     ) %>%
-    dplyr::group_by(doc_id) %>%
     dplyr::tally() %>%
     dplyr::rename(f_51_demonstratives = n)
 
   df[["f_60_that_deletion"]] <- tokens %>%
+    dplyr::group_by(doc_id) %>%
     dplyr::filter(
       lemma %in% pseudobibeR::word_lists$verb_matchlist & pos == "VERB",
       (
@@ -619,21 +623,21 @@ parse_biber_features <- function(tokens, normalize, engine = c("spacy", "udpipe"
         )
     ) %>%
     dplyr::filter(dep_rel != "amod") %>%
-    dplyr::group_by(doc_id) %>%
     dplyr::tally() %>%
     dplyr::rename(f_60_that_deletion = n)
 
   df[["f_61_stranded_preposition"]] <- tokens %>%
+    dplyr::group_by(doc_id) %>%
     dplyr::filter(
       tag == "IN",
       dep_rel == if (engine == "spacy") "prep" else "case",
       dplyr::lead(stringr::str_detect(tag, "[[:punct:]]"))
     ) %>%
-    dplyr::group_by(doc_id) %>%
     dplyr::tally() %>%
     dplyr::rename(f_61_stranded_preposition = n)
 
   df[["f_62_split_infinitve"]] <- tokens %>%
+    dplyr::group_by(doc_id) %>%
     dplyr::filter(
       tag == "TO",
       (
@@ -646,11 +650,11 @@ parse_biber_features <- function(tokens, normalize, engine = c("spacy", "udpipe"
             dplyr::lead(tag == "VB", 3)
         )
     ) %>%
-    dplyr::group_by(doc_id) %>%
     dplyr::tally() %>%
     dplyr::rename(f_62_split_infinitve = n)
 
   df[["f_63_split_auxiliary"]] <- tokens %>%
+    dplyr::group_by(doc_id) %>%
     dplyr::filter(
       stringr::str_detect(dep_rel, "aux") == T,
       (
@@ -663,11 +667,11 @@ parse_biber_features <- function(tokens, normalize, engine = c("spacy", "udpipe"
             dplyr::lead(pos == "VERB", 3)
         )
     ) %>%
-    dplyr::group_by(doc_id) %>%
     dplyr::tally() %>%
     dplyr::rename(f_63_split_auxiliary = n)
 
   df[["f_64_phrasal_coordination"]] <- tokens %>%
+    dplyr::group_by(doc_id) %>%
     dplyr::filter(
       tag == "CC",
       (
@@ -687,11 +691,11 @@ parse_biber_features <- function(tokens, normalize, engine = c("spacy", "udpipe"
             dplyr::lag(pos == "ADV")
         )
     ) %>%
-    dplyr::group_by(doc_id) %>%
     dplyr::tally() %>%
     dplyr::rename(f_64_phrasal_coordination = n)
 
   df[["f_65_clausal_coordination"]] <- tokens %>%
+    dplyr::group_by(doc_id) %>%
     dplyr::filter(
       tag == "CC",
       dep_rel != "ROOT",
@@ -701,7 +705,6 @@ parse_biber_features <- function(tokens, normalize, engine = c("spacy", "udpipe"
           dplyr::lead(dep_rel == "nsubj", 3)
       )
     ) %>%
-    dplyr::group_by(doc_id) %>%
     dplyr::tally() %>%
     dplyr::rename(f_65_clausal_coordination = n)
 
