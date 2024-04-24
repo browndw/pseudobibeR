@@ -40,6 +40,14 @@ check_features <- list(
   ),
   sentence_relatives = list(
     f_34_sentence_relatives = 1
+  ),
+  wh_question = list(
+    f_13_wh_question = 1
+  ),
+  agentless_passive_1 = list(
+    f_17_agentless_passives = 1,
+    f_18_by_passives = 0,
+    udpipe = FALSE # unclear why udpipe doesn't detect this
   )
 )
 

@@ -231,7 +231,8 @@ parse_biber_features <- function(tokens, normalize, engine = c("spacy", "udpipe"
     quanteda::tokens_remove("^\\W_", valuetype = "regex")
 
 
-  tokens <- tokens %>% dplyr::as_tibble() %>%
+  tokens <- tokens %>%
+    dplyr::as_tibble() %>%
     dplyr::mutate(token = tolower(token)) %>%
     dplyr::mutate(pos = ifelse(token == "\n", "PUNCT", pos)) %>%
     dplyr::filter(pos != "SPACE")
@@ -333,16 +334,17 @@ parse_biber_features <- function(tokens, normalize, engine = c("spacy", "udpipe"
     dplyr::rename(f_16_other_nouns = n)
 
   df[["f_17_agentless_passives"]] <- tokens %>%
+    dplyr::group_by(doc_id) %>%
     dplyr::filter(
       dep_rel == if (engine == "spacy") "auxpass" else "aux:pass",
       dplyr::lead(token != "by", 2, default = T),
       dplyr::lead(token != "by", 3, default = T)
     ) %>%
-    dplyr::group_by(doc_id) %>%
     dplyr::tally() %>%
     dplyr::rename(f_17_agentless_passives = n)
 
   df[["f_18_by_passives"]] <- tokens %>%
+    dplyr::group_by(doc_id) %>%
     dplyr::filter(
       dep_rel == if (engine == "spacy") "auxpass" else "aux:pass",
       (
@@ -350,7 +352,6 @@ parse_biber_features <- function(tokens, normalize, engine = c("spacy", "udpipe"
           dplyr::lead(token == "by", 3)
       )
     ) %>%
-    dplyr::group_by(doc_id) %>%
     dplyr::tally() %>%
     dplyr::rename(f_18_by_passives = n)
 
