@@ -11,7 +11,7 @@
         "row.names": {
           "type": "integer",
           "attributes": {},
-          "value": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+          "value": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
         },
         "class": {
           "type": "character",
@@ -23,342 +23,342 @@
         {
           "type": "character",
           "attributes": {},
-          "value": ["quickbrown", "initial_demonstrative", "adj_pred", "subordinator_that", "stranded_preposition", "perfect_aspect", "that_verb_comp", "that_adj_comp", "present_participle", "past_participle", "sentence_relatives"]
+          "value": ["quickbrown", "initial_demonstrative", "adj_pred", "subordinator_that", "stranded_preposition", "perfect_aspect", "that_verb_comp", "that_adj_comp", "present_participle", "past_participle", "sentence_relatives", "wh_question"]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 1, 1, 0, 2, 0, 1, 0, 0]
+          "value": [0, 0, 0, 1, 1, 0, 2, 0, 1, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]
+          "value": [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [1, 1, 1, 1, 1, 1, 0, 2, 0, 0, 3]
+          "value": [1, 1, 1, 1, 1, 1, 0, 2, 0, 0, 3, 1]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1]
+          "value": [0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0]
+          "value": [0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [2, 2, 1, 0, 1, 1, 0, 0, 4, 3, 3]
+          "value": [2, 2, 1, 0, 1, 1, 0, 0, 4, 3, 3, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1]
+          "value": [0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0]
+          "value": [1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [3, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1]
+          "value": [3, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0]
+          "value": [0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0.88888889, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+          "value": [0.88888889, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [3.88888889, 4.6, 3.25, 3, 4, 4.8, 3, 3, 4.3, 4.08333333, 4.35714286]
+          "value": [3.88888889, 4.6, 3.25, 3, 4, 4.8, 3, 3, 4.3, 4.08333333, 4.35714286, 4.25]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1]
+          "value": [0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1]
+          "value": [0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         }
       ]
     }
@@ -376,7 +376,7 @@
         "row.names": {
           "type": "integer",
           "attributes": {},
-          "value": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+          "value": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
         },
         "class": {
           "type": "character",
@@ -388,342 +388,342 @@
         {
           "type": "character",
           "attributes": {},
-          "value": ["quickbrown", "initial_demonstrative", "adj_pred", "subordinator_that", "stranded_preposition", "perfect_aspect", "that_verb_comp", "that_adj_comp", "present_participle", "past_participle", "sentence_relatives"]
+          "value": ["quickbrown", "initial_demonstrative", "adj_pred", "subordinator_that", "stranded_preposition", "perfect_aspect", "that_verb_comp", "that_adj_comp", "present_participle", "past_participle", "sentence_relatives", "wh_question"]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 1, 1, 0, 2, 0, 1, 0, 0]
+          "value": [0, 0, 0, 1, 1, 0, 2, 0, 1, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]
+          "value": [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [1, 1, 1, 1, 1, 1, 0, 2, 0, 0, 3]
+          "value": [1, 1, 1, 1, 1, 1, 0, 2, 0, 0, 3, 1]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1]
+          "value": [0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0]
+          "value": [0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [2, 2, 1, 0, 1, 1, 0, 0, 4, 3, 3]
+          "value": [2, 2, 1, 0, 1, 1, 0, 0, 4, 3, 3, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1]
+          "value": [0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1]
+          "value": [1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [3, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2]
+          "value": [3, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0]
+          "value": [0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0.88888889, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+          "value": [0.88888889, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [3.88888889, 4.6, 3.25, 3, 4, 4.8, 3, 3, 4.3, 4.08333333, 4.35714286]
+          "value": [3.88888889, 4.6, 3.25, 3, 4, 4.8, 3, 3, 4.3, 4.08333333, 4.35714286, 4.25]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1]
+          "value": [0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1]
+          "value": [0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1]
+          "value": [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "integer",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         }
       ]
     }
@@ -741,7 +741,7 @@
         "row.names": {
           "type": "integer",
           "attributes": {},
-          "value": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+          "value": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
         },
         "class": {
           "type": "character",
@@ -753,342 +753,342 @@
         {
           "type": "character",
           "attributes": {},
-          "value": ["quickbrown", "initial_demonstrative", "adj_pred", "subordinator_that", "stranded_preposition", "perfect_aspect", "that_verb_comp", "that_adj_comp", "present_participle", "past_participle", "sentence_relatives"]
+          "value": ["quickbrown", "initial_demonstrative", "adj_pred", "subordinator_that", "stranded_preposition", "perfect_aspect", "that_verb_comp", "that_adj_comp", "present_participle", "past_participle", "sentence_relatives", "wh_question"]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 250, 111.11111111, 0, 400, 0, 100, 0, 0]
+          "value": [0, 0, 0, 250, 111.11111111, 0, 400, 0, 100, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 200, 0, 0, 0, 0, 66.66666667]
+          "value": [0, 0, 0, 0, 0, 200, 0, 0, 0, 0, 66.66666667, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [111.11111111, 200, 250, 250, 111.11111111, 200, 0, 285.71428571, 0, 0, 200]
+          "value": [111.11111111, 200, 250, 250, 111.11111111, 200, 0, 285.71428571, 0, 0, 200, 250]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 250, 111.11111111, 200, 200, 142.85714286, 0, 0, 66.66666667]
+          "value": [0, 0, 0, 250, 111.11111111, 200, 200, 142.85714286, 0, 0, 66.66666667, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 142.85714286, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 142.85714286, 0, 0, 0, 250]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 250, 111.11111111, 0, 200, 0, 100, 0, 0]
+          "value": [0, 0, 0, 250, 111.11111111, 0, 200, 0, 100, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 142.85714286, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 142.85714286, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 200, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 200, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 250]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [222.22222222, 400, 250, 0, 111.11111111, 200, 0, 0, 400, 250, 200]
+          "value": [222.22222222, 400, 250, 0, 111.11111111, 200, 0, 0, 400, 250, 200, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 200, 250, 0, 111.11111111, 0, 0, 142.85714286, 0, 0, 66.66666667]
+          "value": [0, 200, 250, 0, 111.11111111, 0, 0, 142.85714286, 0, 0, 66.66666667, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 200, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 200, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 142.85714286, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 142.85714286, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 100, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 100, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 83.33333333, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 83.33333333, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 111.11111111, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 111.11111111, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 66.66666667]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 66.66666667, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [111.11111111, 0, 0, 0, 111.11111111, 0, 0, 0, 100, 166.66666667, 0]
+          "value": [111.11111111, 0, 0, 0, 111.11111111, 0, 0, 0, 100, 166.66666667, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [333.33333333, 0, 0, 0, 0, 0, 0, 0, 0, 83.33333333, 66.66666667]
+          "value": [333.33333333, 0, 0, 0, 0, 0, 0, 0, 0, 83.33333333, 66.66666667, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 250, 0, 0, 0, 0, 142.85714286, 0, 0, 0]
+          "value": [0, 0, 250, 0, 0, 0, 0, 142.85714286, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 133.33333333]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 133.33333333, 250]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0.88888889, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+          "value": [0.88888889, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [3.88888889, 4.6, 3.25, 3, 4, 4.8, 3, 3, 4.3, 4.08333333, 4.35714286]
+          "value": [3.88888889, 4.6, 3.25, 3, 4, 4.8, 3, 3, 4.3, 4.08333333, 4.35714286, 4.25]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 66.66666667]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 66.66666667, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 200, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 200, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 83.33333333, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 83.33333333, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 200, 200, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 200, 200, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 250, 111.11111111, 0, 0, 0, 0, 0, 66.66666667]
+          "value": [0, 0, 0, 250, 111.11111111, 0, 0, 0, 0, 0, 66.66666667, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 111.11111111, 0, 0, 142.85714286, 0, 0, 66.66666667]
+          "value": [0, 0, 0, 0, 111.11111111, 0, 0, 142.85714286, 0, 0, 66.66666667, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 250, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 250, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 111.11111111, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 111.11111111, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 66.66666667]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 66.66666667, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         }
       ]
     }
@@ -1106,7 +1106,7 @@
         "row.names": {
           "type": "integer",
           "attributes": {},
-          "value": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+          "value": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
         },
         "class": {
           "type": "character",
@@ -1118,342 +1118,342 @@
         {
           "type": "character",
           "attributes": {},
-          "value": ["quickbrown", "initial_demonstrative", "adj_pred", "subordinator_that", "stranded_preposition", "perfect_aspect", "that_verb_comp", "that_adj_comp", "present_participle", "past_participle", "sentence_relatives"]
+          "value": ["quickbrown", "initial_demonstrative", "adj_pred", "subordinator_that", "stranded_preposition", "perfect_aspect", "that_verb_comp", "that_adj_comp", "present_participle", "past_participle", "sentence_relatives", "wh_question"]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 250, 111.11111111, 0, 400, 0, 100, 0, 0]
+          "value": [0, 0, 0, 250, 111.11111111, 0, 400, 0, 100, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 200, 0, 0, 0, 0, 66.66666667]
+          "value": [0, 0, 0, 0, 0, 200, 0, 0, 0, 0, 66.66666667, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [111.11111111, 200, 250, 250, 111.11111111, 200, 0, 285.71428571, 0, 0, 200]
+          "value": [111.11111111, 200, 250, 250, 111.11111111, 200, 0, 285.71428571, 0, 0, 200, 250]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 250, 111.11111111, 200, 200, 142.85714286, 0, 0, 66.66666667]
+          "value": [0, 0, 0, 250, 111.11111111, 200, 200, 142.85714286, 0, 0, 66.66666667, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 142.85714286, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 142.85714286, 0, 0, 0, 250]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 250, 111.11111111, 0, 200, 0, 100, 0, 0]
+          "value": [0, 0, 0, 250, 111.11111111, 0, 200, 0, 100, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 142.85714286, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 142.85714286, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 200, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 200, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 250]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [222.22222222, 400, 250, 0, 111.11111111, 200, 0, 0, 400, 250, 200]
+          "value": [222.22222222, 400, 250, 0, 111.11111111, 200, 0, 0, 400, 250, 200, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 200, 250, 0, 111.11111111, 0, 0, 142.85714286, 0, 0, 66.66666667]
+          "value": [0, 200, 250, 0, 111.11111111, 0, 0, 142.85714286, 0, 0, 66.66666667, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 200, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 200, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 142.85714286, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 142.85714286, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 100, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 100, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 83.33333333, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 83.33333333, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 66.66666667]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 66.66666667, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [111.11111111, 0, 0, 0, 111.11111111, 0, 0, 0, 100, 166.66666667, 66.66666667]
+          "value": [111.11111111, 0, 0, 0, 111.11111111, 0, 0, 0, 100, 166.66666667, 66.66666667, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [333.33333333, 0, 0, 0, 0, 0, 0, 0, 0, 83.33333333, 133.33333333]
+          "value": [333.33333333, 0, 0, 0, 0, 0, 0, 0, 0, 83.33333333, 133.33333333, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 250, 0, 0, 0, 0, 142.85714286, 0, 0, 0]
+          "value": [0, 0, 250, 0, 0, 0, 0, 142.85714286, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 133.33333333]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 133.33333333, 250]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0.88888889, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+          "value": [0.88888889, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [3.88888889, 4.6, 3.25, 3, 4, 4.8, 3, 3, 4.3, 4.08333333, 4.35714286]
+          "value": [3.88888889, 4.6, 3.25, 3, 4, 4.8, 3, 3, 4.3, 4.08333333, 4.35714286, 4.25]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 66.66666667]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 66.66666667, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 200, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 200, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 83.33333333, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 83.33333333, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 200, 200, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 200, 200, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 250, 111.11111111, 0, 0, 0, 0, 0, 66.66666667]
+          "value": [0, 0, 0, 250, 111.11111111, 0, 0, 0, 0, 0, 66.66666667, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 111.11111111, 0, 0, 142.85714286, 0, 0, 66.66666667]
+          "value": [0, 0, 0, 0, 111.11111111, 0, 0, 142.85714286, 0, 0, 66.66666667, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 250, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 250, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 111.11111111, 0, 0, 0, 0, 0, 66.66666667]
+          "value": [0, 0, 0, 0, 111.11111111, 0, 0, 0, 0, 0, 66.66666667, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 66.66666667]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 66.66666667, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         },
         {
           "type": "double",
           "attributes": {},
-          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          "value": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         }
       ]
     }

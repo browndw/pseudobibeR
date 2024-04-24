@@ -47,7 +47,7 @@
 #' ## Questions
 #'
 #' \describe{
-#' \item{f_13_wh_question}{Direct *wh-* questions (e.g., TODO)}
+#' \item{f_13_wh_question}{Direct *wh-* questions (e.g., *When are you leaving?*)}
 #' }
 #'
 #' ## Nominal forms
@@ -272,6 +272,7 @@ parse_biber_features <- function(tokens, normalize, engine = c("spacy", "udpipe"
     dplyr::rename(f_12_proverb_do = n)
 
   df[["f_13_wh_question"]] <- tokens %>%
+    dplyr::group_by(doc_id) %>%
     dplyr::filter(
       stringr::str_detect(tag, "^W") == T,
       pos != "DET" & dplyr::lead(dep_rel == "aux"),
@@ -280,7 +281,6 @@ parse_biber_features <- function(tokens, normalize, engine = c("spacy", "udpipe"
           dplyr::lag(pos == "PUNCT", 2, default = T)
       )
     ) %>%
-    dplyr::group_by(doc_id) %>%
     dplyr::tally() %>%
     dplyr::rename(f_13_wh_question = n)
 
