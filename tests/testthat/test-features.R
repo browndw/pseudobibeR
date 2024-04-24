@@ -44,20 +44,24 @@ check_features <- list(
 )
 
 for (doc_id in names(check_features)) {
-  document_biber <- udp_biber[udp_biber$doc_id == doc_id, ]
+  document_udpipe <- udp_biber[udp_biber$doc_id == doc_id, ]
   document_spacy <- spacy_biber[spacy_biber$doc_id == doc_id, ]
 
   test_that(paste0("document: ", doc_id), {
     # make sure this doc_id exists
-    expect_equal(nrow(document_biber), 1)
+    expect_equal(nrow(document_udpipe), 1)
     expect_equal(nrow(document_spacy), 1)
 
     features <- check_features[[doc_id]]
 
     for (feature in names(features)) {
-      expect_true(feature %in% names(document_biber))
-      if (!isFALSE(features$biber)) {
-        expect_equal(document_biber[[!! feature]], features[[!! feature]])
+      if (feature %in% c("udpipe", "spacy")) {
+        next
+      }
+
+      expect_true(feature %in% names(document_udpipe))
+      if (!isFALSE(features$udpipe)) {
+        expect_equal(document_udpipe[[!! feature]], features[[!! feature]])
       }
 
       expect_true(feature %in% names(document_spacy))
