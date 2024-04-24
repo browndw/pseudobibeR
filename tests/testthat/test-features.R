@@ -3,10 +3,10 @@
 library(udpipe)
 
 udp <- readRDS(test_path("text-samples/udpipe-samples.rds"))
-udp_biber <- biber_udpipe(udp, normalize = FALSE)
+udp_biber <- biber(udp, normalize = FALSE)
 
 spcy <- readRDS(test_path("text-samples/spacy-samples.rds"))
-spacy_biber <- biber_spacy(spcy, normalize = FALSE)
+spacy_biber <- biber(spcy, normalize = FALSE)
 
 # Features to check. Named list. Names are the sample documents, as given in
 # samples.tsv. Values are lists of named features and the counts to expect. Set
