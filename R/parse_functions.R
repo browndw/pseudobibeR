@@ -107,7 +107,7 @@
 #' ## Lexical specificity
 #'
 #' \describe{
-#' \item{f_43_type_token}{Type-token ratio (including punctuation), using the moving-average type-token ratio (MATTR).}
+#' \item{f_43_type_token}{Type-token ratio (including punctuation), using the statistic chosen in `measure`, or TTR if there are fewer than 200 tokens in the smallest document.}
 #' \item{f_44_mean_word_length}{Average word length (across tokens, excluding punctuation)}
 #' }
 #'
@@ -166,6 +166,13 @@
 #'
 #' @param tokens A dataset of tokens created by `spacyr::spacy_parse()` or
 #'   `udpipe::udpipe_annotate()`
+#' @param ttr_measure Measure to use for type-token ratio. Passed to
+#'   `quanteda.textstats::textstat_lexdiv()` to calculate the statistic. Can be
+#'   the Moving Average Type-Token Ratio (MATTR), ordinary Type-Token Ratio
+#'   (TTR), corrected TTR (CTTR), Mean Segmental Type-Token Ratio (MSTTR), or
+#'   `"none"` to skip calculating a type-token ratio. If a statistic is chosen
+#'   but there are fewer than 200 token in the smallest document, the TTR is
+#'   used instead.
 #' @param normalize If `TRUE`, count features are normalized to the rate per
 #'   1,000 tokens.
 #' @return A `data.frame` of features containing one row per document and one
@@ -182,23 +189,26 @@
 #' Linguistics*, 17(2), 94–100. \doi{10.1080/09296171003643098}
 #' @importFrom magrittr %>%
 #' @export
-biber <- function(tokens, normalize = TRUE) {
+biber <- function(tokens, measure = c("MATTR", "TTR", "CTTR", "MSTTR", "none"),
+                  normalize = TRUE) {
+  measure <- match.arg(measure)
+
   UseMethod("biber")
 }
 
 #' @rdname biber
 #' @export
-biber.spacyr_parsed <- function(tokens, normalize = TRUE) {
+biber.spacyr_parsed <- function(tokens, measure, normalize = TRUE) {
   if ("dep_rel" %in% colnames(tokens) == F) stop("be sure to set 'dependency = T' when using spacy_parse")
   if ("tag" %in% colnames(tokens) == F) stop("be sure to set 'tag = T' when using spacy_parse")
   if ("pos" %in% colnames(tokens) == F) stop("be sure to set 'pos = T' when using spacy_parse")
 
-  return(parse_biber_features(tokens, normalize, "spacy"))
+  return(parse_biber_features(tokens, measure, normalize, "spacy"))
 }
 
 #' @rdname biber
 #' @export
-biber.udpipe_connlu <- function(tokens, normalize = TRUE) {
+biber.udpipe_connlu <- function(tokens, measure, normalize = TRUE) {
 
   udpipe_tks <- data.frame(tokens, stringsAsFactors = F)
 
@@ -213,10 +223,11 @@ biber.udpipe_connlu <- function(tokens, normalize = TRUE) {
 
   udpipe_tks <- structure(udpipe_tks, class = c("spacyr_parsed", "data.frame"))
 
-  return(parse_biber_features(udpipe_tks, normalize, "udpipe"))
+  return(parse_biber_features(udpipe_tks, measure, normalize, "udpipe"))
 }
 
-parse_biber_features <- function(tokens, normalize, engine = c("spacy", "udpipe")) {
+#' @importFrom dplyr .data
+parse_biber_features <- function(tokens, measure, normalize, engine = c("spacy", "udpipe")) {
   engine <- match.arg(engine)
 
   dict <- quanteda::dictionary(pseudobibeR::dict)
@@ -713,17 +724,10 @@ parse_biber_features <- function(tokens, normalize, engine = c("spacy", "udpipe"
     quanteda::tokens_remove("\\d_", valuetype = "regex") %>%
     quanteda::tokens_remove("_punct_", valuetype = "fixed")
 
-  if (min(quanteda::ntoken(biber_tks)) < 200) {
-    message("Setting type-to-token ratio to TTR")
-    TTR <- "TTR"
-  } else {
-    message("Setting type-to-token ratio to MATTR")
-    TTR <- "MATTR"
-  }
 
   biber_2 <- df %>% purrr::reduce(dplyr::full_join, by = "doc_id")
 
-  biber_counts <- dplyr::full_join(biber_1, biber_2, by = "doc_id" )%>%
+  biber_counts <- dplyr::full_join(biber_1, biber_2, by = "doc_id") %>%
     replace(is.na(.), 0)
 
   if (normalize) {
@@ -737,8 +741,17 @@ parse_biber_features <- function(tokens, normalize, engine = c("spacy", "udpipe"
     biber_counts <- normalize_counts(biber_counts)
   }
 
-  f_43_type_token <- quanteda.textstats::textstat_lexdiv(biber_tks, measure = TTR) %>%
-    dplyr::rename(doc_id = document, f_43_type_token := !!TTR)
+  if (measure != "none") {
+    if (min(quanteda::ntoken(biber_tks)) < 200) {
+      message("Setting type-to-token ratio to TTR")
+      measure <- "TTR"
+    }
+
+    f_43_type_token <- quanteda.textstats::textstat_lexdiv(biber_tks, measure = measure) %>%
+      dplyr::rename(doc_id = document, f_43_type_token := !!measure)
+
+    biber_counts <- dplyr::full_join(biber_counts, f_43_type_token, by = "doc_id")
+  }
 
   f_44_mean_word_length <- tokens %>%
     dplyr::filter(
