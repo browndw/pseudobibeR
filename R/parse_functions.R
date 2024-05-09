@@ -226,7 +226,7 @@ biber.udpipe_connlu <- function(tokens, measure, normalize = TRUE) {
   return(parse_biber_features(udpipe_tks, measure, normalize, "udpipe"))
 }
 
-#' @importFrom dplyr .data
+#' @importFrom rlang .data :=
 parse_biber_features <- function(tokens, measure, normalize, engine = c("spacy", "udpipe")) {
   engine <- match.arg(engine)
 
@@ -261,7 +261,7 @@ parse_biber_features <- function(tokens, measure, normalize, engine = c("spacy",
       stringr::str_detect(.data$dep_rel, "aux")
     ) %>%
     dplyr::tally() %>%
-    dplyr::rename(f_02_perfect_aspect = n)
+    dplyr::rename(f_02_perfect_aspect = "n")
 
 
   df[["f_10_demonstrative_pronoun"]] <- tokens %>%
@@ -273,7 +273,7 @@ parse_biber_features <- function(tokens, measure, normalize, engine = c("spacy",
     ) %>%
     dplyr::filter(.data$token %in% pseudobibeR::word_lists$pronoun_matchlist) %>%
     dplyr::tally() %>%
-    dplyr::rename(f_10_demonstrative_pronoun = n)
+    dplyr::rename(f_10_demonstrative_pronoun = "n")
 
   df[["f_12_proverb_do"]] <- tokens %>%
     dplyr::group_by(.data$doc_id) %>%
@@ -282,7 +282,7 @@ parse_biber_features <- function(tokens, measure, normalize, engine = c("spacy",
       stringr::str_detect(.data$dep_rel, "aux") == F
     ) %>%
     dplyr::tally() %>%
-    dplyr::rename(f_12_proverb_do = n)
+    dplyr::rename(f_12_proverb_do = "n")
 
   df[["f_13_wh_question"]] <- tokens %>%
     dplyr::group_by(.data$doc_id) %>%
@@ -295,7 +295,7 @@ parse_biber_features <- function(tokens, measure, normalize, engine = c("spacy",
       )
     ) %>%
     dplyr::tally() %>%
-    dplyr::rename(f_13_wh_question = n)
+    dplyr::rename(f_13_wh_question = "n")
 
   df[["f_14_nominalizations"]] <- tokens %>%
     dplyr::group_by(.data$doc_id) %>%
@@ -308,7 +308,7 @@ parse_biber_features <- function(tokens, measure, normalize, engine = c("spacy",
       !.data$token %in% pseudobibeR::word_lists$nominalization_stoplist
     ) %>%
     dplyr::tally() %>%
-    dplyr::rename(f_14_nominalizations = n)
+    dplyr::rename(f_14_nominalizations = "n")
 
   f_15_gerunds <- tokens %>%
     dplyr::filter(
@@ -321,12 +321,12 @@ parse_biber_features <- function(tokens, measure, normalize, engine = c("spacy",
     dplyr::group_by(.data$doc_id) %>%
     dplyr::filter(.data$pos == "NOUN") %>%
     dplyr::tally() %>%
-    dplyr::rename(gerunds_n = n)
+    dplyr::rename(gerunds_n = "n")
 
   df[["f_15_gerunds"]] <- f_15_gerunds %>%
     dplyr::group_by(.data$doc_id) %>%
     dplyr::tally() %>%
-    dplyr::rename(f_15_gerunds = n)
+    dplyr::rename(f_15_gerunds = "n")
 
   df[["f_16_other_nouns"]] <- tokens %>%
     dplyr::group_by(.data$doc_id) %>%
@@ -340,10 +340,10 @@ parse_biber_features <- function(tokens, measure, normalize, engine = c("spacy",
     dplyr::tally() %>%
     dplyr::left_join(df[["f_14_nominalizations"]], by = "doc_id") %>%
     dplyr::left_join(gerunds_n, by = "doc_id") %>%
-    replace(is.na(.), 0) %>%
+    replace_nas() %>%
     dplyr::mutate(n = .data$n - .data$f_14_nominalizations - .data$gerunds_n) %>%
     dplyr::select("doc_id", "n") %>%
-    dplyr::rename(f_16_other_nouns = n)
+    dplyr::rename(f_16_other_nouns = "n")
 
   df[["f_17_agentless_passives"]] <- tokens %>%
     dplyr::group_by(.data$doc_id) %>%
@@ -353,7 +353,7 @@ parse_biber_features <- function(tokens, measure, normalize, engine = c("spacy",
       dplyr::lead(.data$token != "by", 3, default = T)
     ) %>%
     dplyr::tally() %>%
-    dplyr::rename(f_17_agentless_passives = n)
+    dplyr::rename(f_17_agentless_passives = "n")
 
   df[["f_18_by_passives"]] <- tokens %>%
     dplyr::group_by(.data$doc_id) %>%
@@ -365,7 +365,7 @@ parse_biber_features <- function(tokens, measure, normalize, engine = c("spacy",
       )
     ) %>%
     dplyr::tally() %>%
-    dplyr::rename(f_18_by_passives = n)
+    dplyr::rename(f_18_by_passives = "n")
 
   df[["f_19_be_main_verb"]] <- tokens %>%
     dplyr::group_by(.data$doc_id) %>%
@@ -374,7 +374,7 @@ parse_biber_features <- function(tokens, measure, normalize, engine = c("spacy",
       stringr::str_detect(.data$dep_rel, "aux") == F
     ) %>%
     dplyr::tally() %>%
-    dplyr::rename(f_19_be_main_verb = n)
+    dplyr::rename(f_19_be_main_verb = "n")
 
   df[["f_21_that_verb_comp"]] <- tokens %>%
     dplyr::group_by(.data$doc_id) %>%
@@ -384,7 +384,7 @@ parse_biber_features <- function(tokens, measure, normalize, engine = c("spacy",
       dplyr::lag(.data$pos == "VERB")
     ) %>%
     dplyr::tally() %>%
-    dplyr::rename(f_21_that_verb_comp = n)
+    dplyr::rename(f_21_that_verb_comp = "n")
 
   df[["f_22_that_adj_comp"]] <- tokens %>%
     dplyr::group_by(.data$doc_id) %>%
@@ -394,7 +394,7 @@ parse_biber_features <- function(tokens, measure, normalize, engine = c("spacy",
       dplyr::lag(.data$pos == "ADJ")
     ) %>%
     dplyr::tally() %>%
-    dplyr::rename(f_22_that_adj_comp = n)
+    dplyr::rename(f_22_that_adj_comp = "n")
 
   df[["f_23_wh_clause"]] <- tokens %>%
     dplyr::group_by(.data$doc_id) %>%
@@ -404,7 +404,7 @@ parse_biber_features <- function(tokens, measure, normalize, engine = c("spacy",
       dplyr::lag(.data$pos == "VERB")
     ) %>%
     dplyr::tally() %>%
-    dplyr::rename(f_23_wh_clause = n)
+    dplyr::rename(f_23_wh_clause = "n")
 
   df[["f_25_present_participle"]] <- tokens %>%
     dplyr::group_by(.data$doc_id) %>%
@@ -418,7 +418,7 @@ parse_biber_features <- function(tokens, measure, normalize, engine = c("spacy",
       dplyr::lag(.data$dep_rel == "punct", default = TRUE)
     ) %>%
     dplyr::tally() %>%
-    dplyr::rename(f_25_present_participle = n)
+    dplyr::rename(f_25_present_participle = "n")
 
   df[["f_26_past_participle"]] <- tokens %>%
     dplyr::group_by(.data$doc_id) %>%
@@ -431,7 +431,7 @@ parse_biber_features <- function(tokens, measure, normalize, engine = c("spacy",
       dplyr::lag(.data$dep_rel == "punct", default = TRUE)
     ) %>%
     dplyr::tally() %>%
-    dplyr::rename(f_26_past_participle = n)
+    dplyr::rename(f_26_past_participle = "n")
 
   df[["f_27_past_participle_whiz"]] <- tokens %>%
     dplyr::group_by(.data$doc_id) %>%
@@ -441,7 +441,7 @@ parse_biber_features <- function(tokens, measure, normalize, engine = c("spacy",
       .data$dep_rel == "acl"
     ) %>%
     dplyr::tally() %>%
-    dplyr::rename(f_27_past_participle_whiz = n)
+    dplyr::rename(f_27_past_participle_whiz = "n")
 
   df[["f_28_present_participle_whiz"]] <- tokens %>%
     dplyr::group_by(.data$doc_id) %>%
@@ -451,7 +451,7 @@ parse_biber_features <- function(tokens, measure, normalize, engine = c("spacy",
       .data$dep_rel == "acl"
     ) %>%
     dplyr::tally() %>%
-    dplyr::rename(f_28_present_participle_whiz = n)
+    dplyr::rename(f_28_present_participle_whiz = "n")
 
   df[["f_29_that_subj"]] <- tokens %>%
     dplyr::group_by(.data$doc_id) %>%
@@ -461,7 +461,7 @@ parse_biber_features <- function(tokens, measure, normalize, engine = c("spacy",
       stringr::str_detect(.data$dep_rel, "nsubj") == T
     ) %>%
     dplyr::tally() %>%
-    dplyr::rename(f_29_that_subj = n)
+    dplyr::rename(f_29_that_subj = "n")
 
   df[["f_30_that_obj"]] <- tokens %>%
     dplyr::group_by(.data$doc_id) %>%
@@ -471,7 +471,7 @@ parse_biber_features <- function(tokens, measure, normalize, engine = c("spacy",
       .data$dep_rel == if (engine == "spacy") "dobj" else "obj"
     ) %>%
     dplyr::tally() %>%
-    dplyr::rename(f_30_that_obj = n)
+    dplyr::rename(f_30_that_obj = "n")
 
   df[["f_31_wh_subj"]] <- tokens %>%
     dplyr::group_by(.data$doc_id) %>%
@@ -489,7 +489,7 @@ parse_biber_features <- function(tokens, measure, normalize, engine = c("spacy",
     ) %>%
     dplyr::filter(.data$token != "that", stringr::str_detect(.data$dep_rel, "nsubj")) %>%
     dplyr::tally() %>%
-    dplyr::rename(f_31_wh_subj = n)
+    dplyr::rename(f_31_wh_subj = "n")
 
   df[["f_32_wh_obj"]] <- tokens %>%
     dplyr::group_by(.data$doc_id) %>%
@@ -511,7 +511,7 @@ parse_biber_features <- function(tokens, measure, normalize, engine = c("spacy",
       stringr::str_detect(.data$dep_rel, "obj") == T
     ) %>%
     dplyr::tally() %>%
-    dplyr::rename(f_32_wh_obj = n)
+    dplyr::rename(f_32_wh_obj = "n")
 
   df[["f_34_sentence_relatives"]] <- tokens %>%
     dplyr::group_by(.data$doc_id) %>%
@@ -520,7 +520,7 @@ parse_biber_features <- function(tokens, measure, normalize, engine = c("spacy",
       dplyr::lag(.data$pos == "PUNCT")
     ) %>%
     dplyr::tally() %>%
-    dplyr::rename(f_34_sentence_relatives = n)
+    dplyr::rename(f_34_sentence_relatives = "n")
 
   df[["f_35_because"]] <- tokens %>%
     dplyr::group_by(.data$doc_id) %>%
@@ -529,7 +529,7 @@ parse_biber_features <- function(tokens, measure, normalize, engine = c("spacy",
       dplyr::lead(.data$token != "of")
     ) %>%
     dplyr::tally() %>%
-    dplyr::rename(f_35_because = n)
+    dplyr::rename(f_35_because = "n")
 
   df[["f_38_other_adv_sub"]]<- tokens %>%
     dplyr::group_by(.data$doc_id) %>%
@@ -555,21 +555,21 @@ parse_biber_features <- function(tokens, measure, normalize, engine = c("spacy",
       )
     ) %>%
     dplyr::tally() %>%
-    dplyr::rename(f_38_other_adv_sub = n)
+    dplyr::rename(f_38_other_adv_sub = "n")
 
   if (engine == "spacy") {
     df[["f_39_prepositions"]] <- tokens %>%
       dplyr::group_by(.data$doc_id) %>%
       dplyr::filter(.data$dep_rel == "prep") %>%
       dplyr::tally() %>%
-      dplyr::rename(f_39_prepositions = n)
+      dplyr::rename(f_39_prepositions = "n")
   } else {
     df[["f_39_prepositions"]] <- tokens %>%
       dplyr::group_by(.data$doc_id) %>%
       dplyr::filter(.data$dep_rel == "case" &
                       .data$tag == "IN") %>%
       dplyr::tally() %>%
-      dplyr::rename(f_39_prepositions = n)
+      dplyr::rename(f_39_prepositions = "n")
   }
 
   df[["f_40_adj_attr"]] <- tokens %>%
@@ -587,7 +587,7 @@ parse_biber_features <- function(tokens, measure, normalize, engine = c("spacy",
     ) %>%
     dplyr::filter(stringr::str_detect(.data$token, "-") == F) %>%
     dplyr::tally() %>%
-    dplyr::rename(f_40_adj_attr = n)
+    dplyr::rename(f_40_adj_attr = "n")
 
   df[["f_41_adj_pred"]] <- tokens %>%
     dplyr::group_by(.data$doc_id) %>%
@@ -600,7 +600,7 @@ parse_biber_features <- function(tokens, measure, normalize, engine = c("spacy",
       dplyr::lead(.data$pos != "ADV")
     ) %>%
     dplyr::tally() %>%
-    dplyr::rename(f_41_adj_pred = n)
+    dplyr::rename(f_41_adj_pred = "n")
 
   df[["f_51_demonstratives"]] <- tokens %>%
     dplyr::group_by(.data$doc_id) %>%
@@ -609,7 +609,7 @@ parse_biber_features <- function(tokens, measure, normalize, engine = c("spacy",
       .data$dep_rel == "det"
     ) %>%
     dplyr::tally() %>%
-    dplyr::rename(f_51_demonstratives = n)
+    dplyr::rename(f_51_demonstratives = "n")
 
   df[["f_60_that_deletion"]] <- tokens %>%
     dplyr::group_by(.data$doc_id) %>%
@@ -636,7 +636,7 @@ parse_biber_features <- function(tokens, measure, normalize, engine = c("spacy",
     ) %>%
     dplyr::filter(.data$dep_rel != "amod") %>%
     dplyr::tally() %>%
-    dplyr::rename(f_60_that_deletion = n)
+    dplyr::rename(f_60_that_deletion = "n")
 
   df[["f_61_stranded_preposition"]] <- tokens %>%
     dplyr::group_by(.data$doc_id) %>%
@@ -646,7 +646,7 @@ parse_biber_features <- function(tokens, measure, normalize, engine = c("spacy",
       dplyr::lead(stringr::str_detect(.data$tag, "[[:punct:]]"))
     ) %>%
     dplyr::tally() %>%
-    dplyr::rename(f_61_stranded_preposition = n)
+    dplyr::rename(f_61_stranded_preposition = "n")
 
   df[["f_62_split_infinitve"]] <- tokens %>%
     dplyr::group_by(.data$doc_id) %>%
@@ -663,7 +663,7 @@ parse_biber_features <- function(tokens, measure, normalize, engine = c("spacy",
         )
     ) %>%
     dplyr::tally() %>%
-    dplyr::rename(f_62_split_infinitve = n)
+    dplyr::rename(f_62_split_infinitve = "n")
 
   df[["f_63_split_auxiliary"]] <- tokens %>%
     dplyr::group_by(.data$doc_id) %>%
@@ -680,7 +680,7 @@ parse_biber_features <- function(tokens, measure, normalize, engine = c("spacy",
         )
     ) %>%
     dplyr::tally() %>%
-    dplyr::rename(f_63_split_auxiliary = n)
+    dplyr::rename(f_63_split_auxiliary = "n")
 
   df[["f_64_phrasal_coordination"]] <- tokens %>%
     dplyr::group_by(.data$doc_id) %>%
@@ -704,7 +704,7 @@ parse_biber_features <- function(tokens, measure, normalize, engine = c("spacy",
         )
     ) %>%
     dplyr::tally() %>%
-    dplyr::rename(f_64_phrasal_coordination = n)
+    dplyr::rename(f_64_phrasal_coordination = "n")
 
   df[["f_65_clausal_coordination"]] <- tokens %>%
     dplyr::group_by(.data$doc_id) %>%
@@ -718,7 +718,7 @@ parse_biber_features <- function(tokens, measure, normalize, engine = c("spacy",
       )
     ) %>%
     dplyr::tally() %>%
-    dplyr::rename(f_65_clausal_coordination = n)
+    dplyr::rename(f_65_clausal_coordination = "n")
 
   biber_tks <- biber_tks %>%
     quanteda::tokens_remove("\\d_", valuetype = "regex") %>%
@@ -728,11 +728,10 @@ parse_biber_features <- function(tokens, measure, normalize, engine = c("spacy",
   biber_2 <- df %>% purrr::reduce(dplyr::full_join, by = "doc_id")
 
   biber_counts <- dplyr::full_join(biber_1, biber_2, by = "doc_id") %>%
-    replace(is.na(.), 0)
+    replace_nas()
 
   if (normalize) {
-    tot_counts <- quanteda::ntoken(biber_tks) %>%
-      data.frame(tot_counts = .) %>%
+    tot_counts <- data.frame(tot_counts = quanteda::ntoken(biber_tks)) %>%
       tibble::rownames_to_column("doc_id") %>%
       dplyr::as_tibble()
 
@@ -748,7 +747,7 @@ parse_biber_features <- function(tokens, measure, normalize, engine = c("spacy",
     }
 
     f_43_type_token <- quanteda.textstats::textstat_lexdiv(biber_tks, measure = measure) %>%
-      dplyr::rename(doc_id = document, f_43_type_token := !!measure)
+      dplyr::rename(doc_id = "document", f_43_type_token := !!measure)
 
     biber_counts <- dplyr::full_join(biber_counts, f_43_type_token, by = "doc_id")
   }
@@ -783,4 +782,12 @@ normalize_counts <- function(counts) {
   counts %>%
     dplyr::mutate(dplyr::across(dplyr::where(is.numeric), ~ 1000 * . / tot_counts)) %>%
     dplyr::select(-"tot_counts")
+}
+
+#' Replace all NAs with 0
+#'
+#' @param x Vector potentially containing NAs
+#' @keywords internal
+replace_nas <- function(x) {
+  replace(x, is.na(x), 0)
 }

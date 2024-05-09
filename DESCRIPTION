@@ -20,6 +20,7 @@ Imports:
     purrr,
     quanteda,
     quanteda.textstats,
+    rlang,
     stringr,
     tibble,
     magrittr
