@@ -6,15 +6,27 @@
 \alias{biber.udpipe_connlu}
 \title{Extract Biber features from a document parsed and annotated by spacyr or udpipe}
 \usage{
-biber(tokens, normalize = TRUE)
+biber(
+  tokens,
+  measure = c("MATTR", "TTR", "CTTR", "MSTTR", "none"),
+  normalize = TRUE
+)
 
-\method{biber}{spacyr_parsed}(tokens, normalize = TRUE)
+\method{biber}{spacyr_parsed}(tokens, measure, normalize = TRUE)
 
-\method{biber}{udpipe_connlu}(tokens, normalize = TRUE)
+\method{biber}{udpipe_connlu}(tokens, measure, normalize = TRUE)
 }
 \arguments{
 \item{tokens}{A dataset of tokens created by \code{spacyr::spacy_parse()} or
 \code{udpipe::udpipe_annotate()}}
+
+\item{measure}{Measure to use for type-token ratio. Passed to
+\code{quanteda.textstats::textstat_lexdiv()} to calculate the statistic. Can be
+the Moving Average Type-Token Ratio (MATTR), ordinary Type-Token Ratio
+(TTR), corrected TTR (CTTR), Mean Segmental Type-Token Ratio (MSTTR), or
+\code{"none"} to skip calculating a type-token ratio. If a statistic is chosen
+but there are fewer than 200 token in the smallest document, the TTR is
+used instead.}
 
 \item{normalize}{If \code{TRUE}, count features are normalized to the rate per
 1,000 tokens.}
@@ -75,7 +87,7 @@ indicate the location of the feature.
 \subsection{Questions}{
 
 \describe{
-\item{f_13_wh_question}{Direct \emph{wh-} questions (e.g., TODO)}
+\item{f_13_wh_question}{Direct \emph{wh-} questions (e.g., \emph{When are you leaving?})}
 }
 }
 
@@ -141,7 +153,7 @@ indicate the location of the feature.
 \subsection{Lexical specificity}{
 
 \describe{
-\item{f_43_type_token}{Type-token ratio (including punctuation), using the moving-average type-token ratio (MATTR).}
+\item{f_43_type_token}{Type-token ratio (including punctuation), using the statistic chosen in \code{measure}, or TTR if there are fewer than 200 tokens in the smallest document.}
 \item{f_44_mean_word_length}{Average word length (across tokens, excluding punctuation)}
 }
 }

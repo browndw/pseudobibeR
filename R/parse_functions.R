@@ -166,7 +166,7 @@
 #'
 #' @param tokens A dataset of tokens created by `spacyr::spacy_parse()` or
 #'   `udpipe::udpipe_annotate()`
-#' @param ttr_measure Measure to use for type-token ratio. Passed to
+#' @param measure Measure to use for type-token ratio. Passed to
 #'   `quanteda.textstats::textstat_lexdiv()` to calculate the statistic. Can be
 #'   the Moving Average Type-Token Ratio (MATTR), ordinary Type-Token Ratio
 #'   (TTR), corrected TTR (CTTR), Mean Segmental Type-Token Ratio (MSTTR), or

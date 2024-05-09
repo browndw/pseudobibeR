@@ -17,6 +17,7 @@ dict
 For Biber features defined by matching text against dictionaries of word
 patterns (such as third-person pronouns or conjunctions), or features that
 can be found by matching patterns against text, this gives the dictionary of
-patterns for each feature.
+patterns for each feature. These are primarily used internally by \code{biber()},
+but are exported so users can examine the feature definitions.
 }
 \keyword{datasets}

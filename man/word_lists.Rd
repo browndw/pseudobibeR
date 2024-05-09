@@ -5,7 +5,8 @@
 \alias{word_lists}
 \title{Lists of words defining text features}
 \format{
-A named list with one entry per word list. Each entry is a vector of words.
+A named list with one entry per word list. Each entry is a vector of
+words.
 }
 \usage{
 word_lists
@@ -13,6 +14,7 @@ word_lists
 \description{
 For Biber features defined by matching texts against certain exact words,
 rather than patterns, this list defines the exact words defining the
-features.
+features. These lists are primarily used internally by \code{biber()}, but are
+exported so users can examine the feature definitions.
 }
 \keyword{datasets}
