@@ -7,7 +7,9 @@ Authors@R:
            role = c("aut", "cre"),
            email = "dwb2@andrew.cmu.edu",
            comment = c(ORCID = "0000-0001-7745-6354"))
-Description: What the package does (one paragraph).
+Description: Calculates the lexicogrammatical and functional features described
+  by Biber (1985) <doi:10.1515/ling.1985.23.2.337> and widely used for
+  text-type, register, and genre classification tasks.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
