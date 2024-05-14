@@ -178,7 +178,11 @@
 #' @return A `data.frame` of features containing one row per document and one
 #'   column per feature. If `normalize` is `TRUE`, count features are normalized
 #'   to the rate per 1,000 tokens.
-#' @references Biber, Douglas (1988). *Variation across Speech and Writing*.
+#' @references Biber, Douglas (1985). "Investigating macroscopic textual
+#' variation through multifeature/multidimensional analyses." *Linguistics*
+#' 23(2), 337-360. \doi{10.1515/ling.1985.23.2.337}
+#'
+#' Biber, Douglas (1988). *Variation across Speech and Writing*.
 #'   Cambridge University Press.
 #'
 #' Biber, Douglas (1995). *Dimensions of Register Variation: A Cross-Linguistic
