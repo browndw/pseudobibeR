@@ -191,30 +191,34 @@
 #' @export
 biber <- function(tokens, measure = c("MATTR", "TTR", "CTTR", "MSTTR", "none"),
                   normalize = TRUE) {
-  measure <- match.arg(measure)
-
   UseMethod("biber")
 }
 
 #' @rdname biber
 #' @export
-biber.spacyr_parsed <- function(tokens, measure, normalize = TRUE) {
+biber.spacyr_parsed <- function(tokens, measure = c("MATTR", "TTR", "CTTR", "MSTTR", "none"),
+                                normalize = TRUE) {
   if ("dep_rel" %in% colnames(tokens) == F) stop("be sure to set 'dependency = T' when using spacy_parse")
   if ("tag" %in% colnames(tokens) == F) stop("be sure to set 'tag = T' when using spacy_parse")
   if ("pos" %in% colnames(tokens) == F) stop("be sure to set 'pos = T' when using spacy_parse")
+
+  measure <- match.arg(measure)
 
   return(parse_biber_features(tokens, measure, normalize, "spacy"))
 }
 
 #' @rdname biber
 #' @export
-biber.udpipe_connlu <- function(tokens, measure, normalize = TRUE) {
+biber.udpipe_connlu <- function(tokens, measure = c("MATTR", "TTR", "CTTR", "MSTTR", "none"),
+                                normalize = TRUE) {
 
   udpipe_tks <- data.frame(tokens, stringsAsFactors = F)
 
   if ("dep_rel" %in% colnames(udpipe_tks) == F) stop("Be sure to set parser = 'default'")
   if ("xpos" %in% colnames(udpipe_tks) == F) stop("Be sure to set tagger = 'default'")
   if ("upos" %in% colnames(udpipe_tks) == F) stop("Be sure to set tagger = 'default'")
+
+  measure <- match.arg(measure)
 
   udpipe_tks <- udpipe_tks %>%
     dplyr::select("doc_id", "sentence_id", "token_id", "token", "lemma", "upos",

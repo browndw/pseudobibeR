@@ -12,9 +12,17 @@ biber(
   normalize = TRUE
 )
 
-\method{biber}{spacyr_parsed}(tokens, measure, normalize = TRUE)
+\method{biber}{spacyr_parsed}(
+  tokens,
+  measure = c("MATTR", "TTR", "CTTR", "MSTTR", "none"),
+  normalize = TRUE
+)
 
-\method{biber}{udpipe_connlu}(tokens, measure, normalize = TRUE)
+\method{biber}{udpipe_connlu}(
+  tokens,
+  measure = c("MATTR", "TTR", "CTTR", "MSTTR", "none"),
+  normalize = TRUE
+)
 }
 \arguments{
 \item{tokens}{A dataset of tokens created by \code{spacyr::spacy_parse()} or
@@ -218,6 +226,10 @@ indicate the location of the feature.
 }
 }
 \references{
+Biber, Douglas (1985). "Investigating macroscopic textual
+variation through multifeature/multidimensional analyses." \emph{Linguistics}
+23(2), 337-360. \doi{10.1515/ling.1985.23.2.337}
+
 Biber, Douglas (1988). \emph{Variation across Speech and Writing}.
 Cambridge University Press.
 
