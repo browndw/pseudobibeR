@@ -42,4 +42,5 @@ vignettes/*.pdf
 .Renviron
 
 # udpipe models
+data-raw/*.udpipe
 tests/testthat/text-samples/*.udpipe
