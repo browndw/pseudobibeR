@@ -4,11 +4,17 @@
 #' extracts counts of features that have been used in Douglas Biber's research
 #' since the late 1980s.
 #'
-#' This relies on a feature dictionary (included as `dict`) and word lists
+#' Refer to `spacyr::spacy_parse()` or `udpipe::udpipe_annotate()` for details
+#' on parsing texts. These must be configured to do part-of-speech and
+#' dependency parsing. For `spacyr::spacy_parse()`, use the `dependency = TRUE`,
+#' `tag = TRUE`, and `pos = TRUE` arguments; for `udpipe::udpipe_annotate()`,
+#' set the `tagger` and `parser` arguments to `"default"`.
+#'
+#' Feature extraction relies on a dictionary (included as `dict`) and word lists
 #' (`word_lists`) to match specific features; see their documentation and values
 #' for details on the exact patterns and words matched by each. The function
 #' identifies other features based on local cues, which are approximations.
-#' Because they rely on pobablistic taggers provided by spaCy or udpipe, the
+#' Because they rely on probabilistic taggers provided by spaCy or udpipe, the
 #' accuracy of the resulting counts are dependent on the accuracy of those
 #' models. Thus, texts with irregular spellings, non-normative punctuation, etc.
 #' will likely produce unreliable outputs, unless taggers are tuned specifically
@@ -61,8 +67,8 @@
 #' ## Passives
 #'
 #' \describe{
-#' \item{f_17_agentless_passives}{Agentless passives (e.g., TODO)}
-#' \item{f_18_by_passives}{*by-* passives (e.g., TODO)}
+#' \item{f_17_agentless_passives}{Agentless passives (e.g., *The task \[was done\].*)}
+#' \item{f_18_by_passives}{*by-* passives (e.g., *The task \[was done by Steve\].*)}
 #' }
 #'
 #' ## Stative forms
@@ -191,6 +197,11 @@
 #' Covington, M. A., & McFall, J. D. (2010). Cutting the Gordian Knot: The
 #' Moving-Average Type–Token Ratio (MATTR). *Journal of Quantitative
 #' Linguistics*, 17(2), 94–100. \doi{10.1080/09296171003643098}
+#' @examples
+#' # Parse the example documents provided with the package
+#' biber(udpipe_samples)
+#'
+#' biber(spacy_samples)
 #' @importFrom magrittr %>%
 #' @export
 biber <- function(tokens, measure = c("MATTR", "TTR", "CTTR", "MSTTR", "none"),

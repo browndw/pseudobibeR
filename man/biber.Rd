@@ -50,11 +50,17 @@ extracts counts of features that have been used in Douglas Biber's research
 since the late 1980s.
 }
 \details{
-This relies on a feature dictionary (included as \code{dict}) and word lists
+Refer to \code{spacyr::spacy_parse()} or \code{udpipe::udpipe_annotate()} for details
+on parsing texts. These must be configured to do part-of-speech and
+dependency parsing. For \code{spacyr::spacy_parse()}, use the \code{dependency = TRUE},
+\code{tag = TRUE}, and \code{pos = TRUE} arguments; for \code{udpipe::udpipe_annotate()},
+set the \code{tagger} and \code{parser} arguments to \code{"default"}.
+
+Feature extraction relies on a dictionary (included as \code{dict}) and word lists
 (\code{word_lists}) to match specific features; see their documentation and values
 for details on the exact patterns and words matched by each. The function
 identifies other features based on local cues, which are approximations.
-Because they rely on pobablistic taggers provided by spaCy or udpipe, the
+Because they rely on probabilistic taggers provided by spaCy or udpipe, the
 accuracy of the resulting counts are dependent on the accuracy of those
 models. Thus, texts with irregular spellings, non-normative punctuation, etc.
 will likely produce unreliable outputs, unless taggers are tuned specifically
@@ -111,8 +117,8 @@ indicate the location of the feature.
 \subsection{Passives}{
 
 \describe{
-\item{f_17_agentless_passives}{Agentless passives (e.g., TODO)}
-\item{f_18_by_passives}{\emph{by-} passives (e.g., TODO)}
+\item{f_17_agentless_passives}{Agentless passives (e.g., \emph{The task [was done].})}
+\item{f_18_by_passives}{\emph{by-} passives (e.g., \emph{The task [was done by Steve].})}
 }
 }
 
@@ -224,6 +230,12 @@ indicate the location of the feature.
 \item{f_67_neg_analytic}{Analytic negation (e.g., \emph{That isn't good enough.})}
 }
 }
+}
+\examples{
+# Parse the example documents provided with the package
+biber(udpipe_samples)
+
+biber(spacy_samples)
 }
 \references{
 Biber, Douglas (1985). "Investigating macroscopic textual
