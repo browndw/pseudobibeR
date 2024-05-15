@@ -1,20 +1,41 @@
-## Pseudo-Biber Aggregator
+# Pseudo-Biber Aggregator
 
-The R scipts in this repository aggregate the lexicogrammatical and functonal features described by Biber (1985) and widely used for text-type, register, and genre classification tasks.
+This package aggregates the lexicogrammatical and functional features described
+by Biber (1985) and widely used for text-type, register, and genre
+classification tasks.
 
-The scripts are not really taggers. Rather, they use either [udpipe](https://bnosac.github.io/udpipe/en/) or [spaCy](https://spacy.io/) part-of-speech tagging and dependency parsing to summarize and aggregate patterns.
+The scripts are not really taggers. Rather, they use either
+[udpipe](https://bnosac.github.io/udpipe/en/) or [spaCy](https://spacy.io/) (via
+[spacyr](https://spacyr.quanteda.io/index.html) part-of-speech tagging and
+dependency parsing to summarize and aggregate patterns.
 
-Because they rely on spaCy, the accuracy of the resulting counts are dependent on the accuracy of tagging produced by spaCy. Thus, texts with irregular spellings, non-normative punctuation, etc. will likely produce unreliable outputs.
+Because they rely on existing part-of-speech tagging, the accuracy of the
+resulting counts are dependent on the accuracy of tagging. Thus, texts with
+irregular spellings, non-normative punctuation, etc. will likely produce
+unreliable outputs.
 
-## Installing and Running pseudobibeR
+## Basic usage
 
-Use devtools to install the package.
+The package provides one function, `biber()`, which takes either udpipe- or
+spacyr-tagged text and produces a data frame of features for each document.
+
+For example,
 
 ```r
-devtools::install_github("browndw/pseudobibeR")
-```
+library(spacyr)
+library(pseudobibeR)
 
-The package documentation is available on [readthedocs](https://cmu-textstat-docs.readthedocs.io/en/latest/pseudobibeR/pseudobibeR.html)
+spacy_initialize(model = "en_core_web_sm")
+
+features <- biber(
+  spacy_parse(
+    c("doc_1" = "The task was done by Steve"),
+    dependency = TRUE,
+    tag = TRUE,
+    pos = TRUE
+  )
+)
+```
 
 ## Testing
 
