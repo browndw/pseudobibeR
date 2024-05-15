@@ -56,15 +56,15 @@ dependency parsing. For \code{spacyr::spacy_parse()}, use the \code{dependency =
 \code{tag = TRUE}, and \code{pos = TRUE} arguments; for \code{udpipe::udpipe_annotate()},
 set the \code{tagger} and \code{parser} arguments to \code{"default"}.
 
-Feature extraction relies on a dictionary (included as \code{dict}) and word lists
-(\code{word_lists}) to match specific features; see their documentation and values
-for details on the exact patterns and words matched by each. The function
-identifies other features based on local cues, which are approximations.
-Because they rely on probabilistic taggers provided by spaCy or udpipe, the
-accuracy of the resulting counts are dependent on the accuracy of those
-models. Thus, texts with irregular spellings, non-normative punctuation, etc.
-will likely produce unreliable outputs, unless taggers are tuned specifically
-for those purposes.
+Feature extraction relies on a dictionary (included as \code{\link{dict}}) and word
+lists (\code{\link{word_lists}}) to match specific features; see their documentation
+and values for details on the exact patterns and words matched by each. The
+function identifies other features based on local cues, which are
+approximations. Because they rely on probabilistic taggers provided by spaCy
+or udpipe, the accuracy of the resulting counts are dependent on the accuracy
+of those models. Thus, texts with irregular spellings, non-normative
+punctuation, etc. will likely produce unreliable outputs, unless taggers are
+tuned specifically for those purposes.
 
 The following features are detected. Square brackets in example sentences
 indicate the location of the feature.
@@ -80,20 +80,17 @@ indicate the location of the feature.
 \subsection{Place and time adverbials}{
 
 \describe{
-\item{f_04_place_adverbials}{Place adverbials (e.g., \emph{above}, \emph{beside}, \emph{outdoors})}
-\item{f_05_time_adverbials}{Time adverbials (e.g., \emph{early}, \emph{instantly}, \emph{soon})}
+\item{f_04_place_adverbials}{Place adverbials (e.g., \emph{above}, \emph{beside}, \emph{outdoors}; see list in \code{dict$f_04_place_adverbials})}
+\item{f_05_time_adverbials}{Time adverbials (e.g., \emph{early}, \emph{instantly}, \emph{soon}; see \code{dict$f_05_time_adverbials})}
 }
 }
 
 \subsection{Pronouns and pro-verbs}{
 
 \describe{
-\item{f_06_first_person_pronouns}{First-person pronouns}
-\item{f_07_second_person_pronouns}{Second-person pronouns}
-\item{f_08_third_person_pronouns}{Third-person personal pronouns (excluding \emph{it})}
-\item{f_09_pronoun_it}{Pronoun \emph{it}}
-\item{f_10_demonstrative_pronoun}{Pronouns being used to replace a noun (e.g. \emph{[That] is an example sentence.})}
-\item{f_11_indefinite_pronouns}{Indefinite pronouns (e.g., \emph{anybody}, \emph{nothing}, \emph{someone})}
+\item{f_06_first_person_pronouns}{First-person pronouns; see \code{dict$f_06_first_person_pronouns}}
+\item{f_07_second_person_pronouns}{Second-person pronouns; see \code{dict$f_07_second_person_pronouns}}
+\item{f_08_third_person_pronouns}{Third-person personal pronouns (excluding \emph{it}); see \verb{dict$f_08_third_person_pronouns\} \\item\{f_09_pronoun_it\}\{Pronoun *it*, *its*, or *itself*\} \\item\{f_10_demonstrative_pronoun\}\{Pronouns being used to replace a noun (e.g. *\[That\] is an example sentence.*)\} \\item\{f_11_indefinite_pronouns\}\{Indefinite pronouns (e.g., *anybody*, *nothing*, *someone*; see }dict$f_11_indefinite_pronouns`)}
 \item{f_12_proverb_do}{Pro-verb \emph{do}}
 }
 }
@@ -175,12 +172,12 @@ indicate the location of the feature.
 \subsection{Lexical classes}{
 
 \describe{
-\item{f_45_conjuncts}{Conjuncts (e.g., \emph{consequently}, \emph{furthermore}, \emph{however})}
-\item{f_46_downtoners}{Downtoners (e.g., \emph{barely}, \emph{nearly}, \emph{slightly})}
-\item{f_47_hedges}{Hedges (e.g., \emph{at about}, \emph{something like}, \emph{almost})}
-\item{f_48_amplifiers}{Amplifiers (e.g., \emph{absolutely}, \emph{extremely}, \emph{perfectly})}
-\item{f_49_emphatics}{Emphatics (e.g., \emph{a lot}, \emph{for sure}, \emph{really})}
-\item{f_50_discourse_particles}{Discourse particles (e.g., sentence-initial \emph{well}, \emph{now}, \emph{anyway})}
+\item{f_45_conjuncts}{Conjuncts (e.g., \emph{consequently}, \emph{furthermore}, \emph{however}; see \code{dict$f_45_conjuncts})}
+\item{f_46_downtoners}{Downtoners (e.g., \emph{barely}, \emph{nearly}, \emph{slightly}; see \code{dict$f_46_downtoners})}
+\item{f_47_hedges}{Hedges (e.g., \emph{at about}, \emph{something like}, \emph{almost}; see \code{dict$f_47_hedges})}
+\item{f_48_amplifiers}{Amplifiers (e.g., \emph{absolutely}, \emph{extremely}, \emph{perfectly}; see \code{dict$f_48_amplifiers})}
+\item{f_49_emphatics}{Emphatics (e.g., \emph{a lot}, \emph{for sure}, \emph{really}; see \code{dict$f_49_emphatics})}
+\item{f_50_discourse_particles}{Discourse particles (e.g., sentence-initial \emph{well}, \emph{now}, \emph{anyway}; see \code{dict$f_50_discourse_particles})}
 \item{f_51_demonstratives}{Demonstratives (e.g., TODO)}
 }
 }
@@ -197,9 +194,9 @@ indicate the location of the feature.
 \subsection{Specialized verb classes}{
 
 \describe{
-\item{f_55_verb_public}{Public verbs (e.g., \emph{assert}, \emph{declare}, \emph{mention})}
-\item{f_56_verb_private}{Private verbs (e.g., \emph{assume}, \emph{believe}, \emph{doubt}, \emph{know})}
-\item{f_57_verb_suasive}{Suasive verbs (e.g., \emph{command}, \emph{insist}, \emph{propose})}
+\item{f_55_verb_public}{Public verbs (e.g., \emph{assert}, \emph{declare}, \emph{mention}; see \code{dict$f_55_verb_public})}
+\item{f_56_verb_private}{Private verbs (e.g., \emph{assume}, \emph{believe}, \emph{doubt}, \emph{know}; see \code{dict$f_56_verb_private})}
+\item{f_57_verb_suasive}{Suasive verbs (e.g., \emph{command}, \emph{insist}, \emph{propose}; see \code{dict$f_57_verb_suasive})}
 \item{f_58_verb_seem}{\emph{seem} and \emph{appear}}
 }
 }
@@ -251,4 +248,7 @@ Comparison.} Cambridge University Press.
 Covington, M. A., & McFall, J. D. (2010). Cutting the Gordian Knot: The
 Moving-Average Type–Token Ratio (MATTR). \emph{Journal of Quantitative
 Linguistics}, 17(2), 94–100. \doi{10.1080/09296171003643098}
+}
+\seealso{
+\link{dict}, \link{word_lists}
 }

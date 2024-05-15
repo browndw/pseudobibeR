@@ -10,15 +10,15 @@
 #' `tag = TRUE`, and `pos = TRUE` arguments; for `udpipe::udpipe_annotate()`,
 #' set the `tagger` and `parser` arguments to `"default"`.
 #'
-#' Feature extraction relies on a dictionary (included as `dict`) and word lists
-#' (`word_lists`) to match specific features; see their documentation and values
-#' for details on the exact patterns and words matched by each. The function
-#' identifies other features based on local cues, which are approximations.
-#' Because they rely on probabilistic taggers provided by spaCy or udpipe, the
-#' accuracy of the resulting counts are dependent on the accuracy of those
-#' models. Thus, texts with irregular spellings, non-normative punctuation, etc.
-#' will likely produce unreliable outputs, unless taggers are tuned specifically
-#' for those purposes.
+#' Feature extraction relies on a dictionary (included as [`dict`]) and word
+#' lists ([`word_lists`]) to match specific features; see their documentation
+#' and values for details on the exact patterns and words matched by each. The
+#' function identifies other features based on local cues, which are
+#' approximations. Because they rely on probabilistic taggers provided by spaCy
+#' or udpipe, the accuracy of the resulting counts are dependent on the accuracy
+#' of those models. Thus, texts with irregular spellings, non-normative
+#' punctuation, etc. will likely produce unreliable outputs, unless taggers are
+#' tuned specifically for those purposes.
 #'
 #' The following features are detected. Square brackets in example sentences
 #' indicate the location of the feature.
@@ -34,19 +34,19 @@
 #' ## Place and time adverbials
 #'
 #' \describe{
-#' \item{f_04_place_adverbials}{Place adverbials (e.g., *above*, *beside*, *outdoors*)}
-#' \item{f_05_time_adverbials}{Time adverbials (e.g., *early*, *instantly*, *soon*)}
+#' \item{f_04_place_adverbials}{Place adverbials (e.g., *above*, *beside*, *outdoors*; see list in `dict$f_04_place_adverbials`)}
+#' \item{f_05_time_adverbials}{Time adverbials (e.g., *early*, *instantly*, *soon*; see `dict$f_05_time_adverbials`)}
 #' }
 #'
 #' ## Pronouns and pro-verbs
 #'
 #' \describe{
-#' \item{f_06_first_person_pronouns}{First-person pronouns}
-#' \item{f_07_second_person_pronouns}{Second-person pronouns}
-#' \item{f_08_third_person_pronouns}{Third-person personal pronouns (excluding *it*)}
-#' \item{f_09_pronoun_it}{Pronoun *it*}
+#' \item{f_06_first_person_pronouns}{First-person pronouns; see `dict$f_06_first_person_pronouns`}
+#' \item{f_07_second_person_pronouns}{Second-person pronouns; see `dict$f_07_second_person_pronouns`}
+#' \item{f_08_third_person_pronouns}{Third-person personal pronouns (excluding *it*); see `dict$f_08_third_person_pronouns}
+#' \item{f_09_pronoun_it}{Pronoun *it*, *its*, or *itself*}
 #' \item{f_10_demonstrative_pronoun}{Pronouns being used to replace a noun (e.g. *\[That\] is an example sentence.*)}
-#' \item{f_11_indefinite_pronouns}{Indefinite pronouns (e.g., *anybody*, *nothing*, *someone*)}
+#' \item{f_11_indefinite_pronouns}{Indefinite pronouns (e.g., *anybody*, *nothing*, *someone*; see `dict$f_11_indefinite_pronouns`)}
 #' \item{f_12_proverb_do}{Pro-verb *do*}
 #' }
 #'
@@ -120,12 +120,12 @@
 #' ## Lexical classes
 #'
 #' \describe{
-#' \item{f_45_conjuncts}{Conjuncts (e.g., *consequently*, *furthermore*, *however*)}
-#' \item{f_46_downtoners}{Downtoners (e.g., *barely*, *nearly*, *slightly*)}
-#' \item{f_47_hedges}{Hedges (e.g., *at about*, *something like*, *almost*)}
-#' \item{f_48_amplifiers}{Amplifiers (e.g., *absolutely*, *extremely*, *perfectly*)}
-#' \item{f_49_emphatics}{Emphatics (e.g., *a lot*, *for sure*, *really*)}
-#' \item{f_50_discourse_particles}{Discourse particles (e.g., sentence-initial *well*, *now*, *anyway*)}
+#' \item{f_45_conjuncts}{Conjuncts (e.g., *consequently*, *furthermore*, *however*; see `dict$f_45_conjuncts`)}
+#' \item{f_46_downtoners}{Downtoners (e.g., *barely*, *nearly*, *slightly*; see `dict$f_46_downtoners`)}
+#' \item{f_47_hedges}{Hedges (e.g., *at about*, *something like*, *almost*; see `dict$f_47_hedges`)}
+#' \item{f_48_amplifiers}{Amplifiers (e.g., *absolutely*, *extremely*, *perfectly*; see `dict$f_48_amplifiers`)}
+#' \item{f_49_emphatics}{Emphatics (e.g., *a lot*, *for sure*, *really*; see `dict$f_49_emphatics`)}
+#' \item{f_50_discourse_particles}{Discourse particles (e.g., sentence-initial *well*, *now*, *anyway*; see `dict$f_50_discourse_particles`)}
 #' \item{f_51_demonstratives}{Demonstratives (e.g., TODO)}
 #' }
 #'
@@ -140,9 +140,9 @@
 #' ## Specialized verb classes
 #'
 #' \describe{
-#' \item{f_55_verb_public}{Public verbs (e.g., *assert*, *declare*, *mention*)}
-#' \item{f_56_verb_private}{Private verbs (e.g., *assume*, *believe*, *doubt*, *know*)}
-#' \item{f_57_verb_suasive}{Suasive verbs (e.g., *command*, *insist*, *propose*)}
+#' \item{f_55_verb_public}{Public verbs (e.g., *assert*, *declare*, *mention*; see `dict$f_55_verb_public`)}
+#' \item{f_56_verb_private}{Private verbs (e.g., *assume*, *believe*, *doubt*, *know*; see `dict$f_56_verb_private`)}
+#' \item{f_57_verb_suasive}{Suasive verbs (e.g., *command*, *insist*, *propose*; see `dict$f_57_verb_suasive`)}
 #' \item{f_58_verb_seem}{*seem* and *appear*}
 #' }
 #'
@@ -203,6 +203,7 @@
 #'
 #' biber(spacy_samples)
 #' @importFrom magrittr %>%
+#' @seealso [dict], [word_lists]
 #' @export
 biber <- function(tokens, measure = c("MATTR", "TTR", "CTTR", "MSTTR", "none"),
                   normalize = TRUE) {
