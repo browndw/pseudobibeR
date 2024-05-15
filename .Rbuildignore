@@ -1,2 +1,5 @@
 ^tests/testthat/text-samples/(.+).udpipe$
 ^data-raw$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$

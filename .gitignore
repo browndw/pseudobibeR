@@ -44,3 +44,4 @@ vignettes/*.pdf
 # udpipe models
 data-raw/*.udpipe
 tests/testthat/text-samples/*.udpipe
+docs
