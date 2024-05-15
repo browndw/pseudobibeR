@@ -216,7 +216,13 @@ biber.spacyr_parsed <- function(tokens, measure = c("MATTR", "TTR", "CTTR", "MST
 biber.udpipe_connlu <- function(tokens, measure = c("MATTR", "TTR", "CTTR", "MSTTR", "none"),
                                 normalize = TRUE) {
 
-  udpipe_tks <- data.frame(tokens, stringsAsFactors = F)
+  # implicitly depends on the data.frame method for udpipe_connlu from
+  # udpipe, so we have to put udpipe in Suggests and try to load it
+  if (!requireNamespace("udpipe", quietly = TRUE)) {
+    stop("udpipe package must be installed to extract features from udpipe-tagged text")
+  }
+
+  udpipe_tks <- as.data.frame(tokens, stringsAsFactors = FALSE)
 
   if ("dep_rel" %in% colnames(udpipe_tks) == F) stop("Be sure to set parser = 'default'")
   if ("xpos" %in% colnames(udpipe_tks) == F) stop("Be sure to set tagger = 'default'")
