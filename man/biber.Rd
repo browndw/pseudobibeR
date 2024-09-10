@@ -123,7 +123,7 @@ indicate the location of the feature.
 
 \describe{
 \item{f_19_be_main_verb}{\emph{be} as main verb}
-\item{f_20_existential_there}{Existential \emph{there} (e.g., TODO)}
+\item{f_20_existential_there}{Existential \emph{there} (e.g., \emph{[There] is a feature in this sentence.})}
 }
 }
 
@@ -178,7 +178,7 @@ indicate the location of the feature.
 \item{f_48_amplifiers}{Amplifiers (e.g., \emph{absolutely}, \emph{extremely}, \emph{perfectly}; see \code{dict$f_48_amplifiers})}
 \item{f_49_emphatics}{Emphatics (e.g., \emph{a lot}, \emph{for sure}, \emph{really}; see \code{dict$f_49_emphatics})}
 \item{f_50_discourse_particles}{Discourse particles (e.g., sentence-initial \emph{well}, \emph{now}, \emph{anyway}; see \code{dict$f_50_discourse_particles})}
-\item{f_51_demonstratives}{Demonstratives (e.g., TODO)}
+\item{f_51_demonstratives}{Demonstratives (\emph{that}, \emph{this}, \emph{these}, or \emph{those} used as determiners, e.g. \emph{[That] is the feature})}
 }
 }
 

@@ -75,7 +75,7 @@
 #'
 #' \describe{
 #' \item{f_19_be_main_verb}{*be* as main verb}
-#' \item{f_20_existential_there}{Existential *there* (e.g., TODO)}
+#' \item{f_20_existential_there}{Existential *there* (e.g., *\[There\] is a feature in this sentence.*)}
 #' }
 #'
 #' ## Subordination features
@@ -126,7 +126,7 @@
 #' \item{f_48_amplifiers}{Amplifiers (e.g., *absolutely*, *extremely*, *perfectly*; see `dict$f_48_amplifiers`)}
 #' \item{f_49_emphatics}{Emphatics (e.g., *a lot*, *for sure*, *really*; see `dict$f_49_emphatics`)}
 #' \item{f_50_discourse_particles}{Discourse particles (e.g., sentence-initial *well*, *now*, *anyway*; see `dict$f_50_discourse_particles`)}
-#' \item{f_51_demonstratives}{Demonstratives (e.g., TODO)}
+#' \item{f_51_demonstratives}{Demonstratives (*that*, *this*, *these*, or *those* used as determiners, e.g. *\[That\] is the feature*)}
 #' }
 #'
 #' ## Modals
