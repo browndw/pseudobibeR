@@ -152,7 +152,7 @@
 #' \item{f_59_contractions}{Contractions}
 #' \item{f_60_that_deletion}{Subordinator *that* deletion (e.g., *I think \[he went\].*)}
 #' \item{f_61_stranded_preposition}{Stranded prepositions (e.g., *the candidate that I was thinking \[of\]*)}
-#' \item{f_62_split_infinitve}{Split infinitives (e.g., *He wants \[to convincingly prove\] that ...*)}
+#' \item{f_62_split_infinitive}{Split infinitives (e.g., *He wants \[to convincingly prove\] that ...*)}
 #' \item{f_63_split_auxiliary}{Split auxiliaries (e.g., *They \[were apparently shown\] to ...*)}
 #' }
 #'
@@ -674,7 +674,7 @@ parse_biber_features <- function(tokens, measure, normalize, engine = c("spacy",
     dplyr::tally() %>%
     dplyr::rename(f_61_stranded_preposition = "n")
 
-  df[["f_62_split_infinitve"]] <- tokens %>%
+  df[["f_62_split_infinitive"]] <- tokens %>%
     dplyr::group_by(.data$doc_id) %>%
     dplyr::filter(
       .data$tag == "TO",
@@ -689,7 +689,7 @@ parse_biber_features <- function(tokens, measure, normalize, engine = c("spacy",
         )
     ) %>%
     dplyr::tally() %>%
-    dplyr::rename(f_62_split_infinitve = "n")
+    dplyr::rename(f_62_split_infinitive = "n")
 
   df[["f_63_split_auxiliary"]] <- tokens %>%
     dplyr::group_by(.data$doc_id) %>%

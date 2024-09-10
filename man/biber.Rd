@@ -207,7 +207,7 @@ indicate the location of the feature.
 \item{f_59_contractions}{Contractions}
 \item{f_60_that_deletion}{Subordinator \emph{that} deletion (e.g., \emph{I think [he went].})}
 \item{f_61_stranded_preposition}{Stranded prepositions (e.g., \emph{the candidate that I was thinking [of]})}
-\item{f_62_split_infinitve}{Split infinitives (e.g., \emph{He wants [to convincingly prove] that ...})}
+\item{f_62_split_infinitive}{Split infinitives (e.g., \emph{He wants [to convincingly prove] that ...})}
 \item{f_63_split_auxiliary}{Split auxiliaries (e.g., \emph{They [were apparently shown] to ...})}
 }
 }
