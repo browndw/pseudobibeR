@@ -48,6 +48,9 @@ check_features <- list(
     f_17_agentless_passives = 1,
     f_18_by_passives = 0,
     udpipe = FALSE # unclear why udpipe doesn't detect this
+  ),
+  existential_there = list(
+    f_20_existential_there = 1
   )
 )
 
