@@ -43,7 +43,7 @@
 #' \describe{
 #' \item{f_06_first_person_pronouns}{First-person pronouns; see `dict$f_06_first_person_pronouns`}
 #' \item{f_07_second_person_pronouns}{Second-person pronouns; see `dict$f_07_second_person_pronouns`}
-#' \item{f_08_third_person_pronouns}{Third-person personal pronouns (excluding *it*); see `dict$f_08_third_person_pronouns}
+#' \item{f_08_third_person_pronouns}{Third-person personal pronouns (excluding *it*); see `dict$f_08_third_person_pronouns`}
 #' \item{f_09_pronoun_it}{Pronoun *it*, *its*, or *itself*}
 #' \item{f_10_demonstrative_pronoun}{Pronouns being used to replace a noun (e.g. *\[That\] is an example sentence.*)}
 #' \item{f_11_indefinite_pronouns}{Indefinite pronouns (e.g., *anybody*, *nothing*, *someone*; see `dict$f_11_indefinite_pronouns`)}
@@ -59,7 +59,7 @@
 #' ## Nominal forms
 #'
 #' \describe{
-#' \item{f_14_nominalizations}{Nominalizations (nouns ending in *-tion*, *-ment*, *-ness*, *-ity*)}
+#' \item{f_14_nominalizations}{Nominalizations (nouns ending in *-tion*, *-ment*, *-ness*, *-ity*, e.g. *adjustment*, *abandonment*)}
 #' \item{f_15_gerunds}{Gerunds (participial forms functioning as nouns)}
 #' \item{f_16_other_nouns}{Total other nouns}
 #' }

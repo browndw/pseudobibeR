@@ -90,7 +90,10 @@ indicate the location of the feature.
 \describe{
 \item{f_06_first_person_pronouns}{First-person pronouns; see \code{dict$f_06_first_person_pronouns}}
 \item{f_07_second_person_pronouns}{Second-person pronouns; see \code{dict$f_07_second_person_pronouns}}
-\item{f_08_third_person_pronouns}{Third-person personal pronouns (excluding \emph{it}); see \verb{dict$f_08_third_person_pronouns\} \\item\{f_09_pronoun_it\}\{Pronoun *it*, *its*, or *itself*\} \\item\{f_10_demonstrative_pronoun\}\{Pronouns being used to replace a noun (e.g. *\[That\] is an example sentence.*)\} \\item\{f_11_indefinite_pronouns\}\{Indefinite pronouns (e.g., *anybody*, *nothing*, *someone*; see }dict$f_11_indefinite_pronouns`)}
+\item{f_08_third_person_pronouns}{Third-person personal pronouns (excluding \emph{it}); see \code{dict$f_08_third_person_pronouns}}
+\item{f_09_pronoun_it}{Pronoun \emph{it}, \emph{its}, or \emph{itself}}
+\item{f_10_demonstrative_pronoun}{Pronouns being used to replace a noun (e.g. \emph{[That] is an example sentence.})}
+\item{f_11_indefinite_pronouns}{Indefinite pronouns (e.g., \emph{anybody}, \emph{nothing}, \emph{someone}; see \code{dict$f_11_indefinite_pronouns})}
 \item{f_12_proverb_do}{Pro-verb \emph{do}}
 }
 }

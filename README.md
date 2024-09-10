@@ -6,7 +6,7 @@ classification tasks.
 
 The scripts are not really taggers. Rather, they use either
 [udpipe](https://bnosac.github.io/udpipe/en/) or [spaCy](https://spacy.io/) (via
-[spacyr](https://spacyr.quanteda.io/index.html) part-of-speech tagging and
+[spacyr](https://spacyr.quanteda.io/index.html)) part-of-speech tagging and
 dependency parsing to summarize and aggregate patterns.
 
 Because they rely on existing part-of-speech tagging, the accuracy of the
