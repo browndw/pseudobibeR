@@ -338,7 +338,7 @@ parse_biber_features <- function(tokens, measure, normalize, engine = c("spacy",
   f_15_gerunds <- tokens %>%
     dplyr::filter(
       stringr::str_detect(.data$token, "ing$|ings$") == TRUE,
-      stringr::str_detect(.data$dep_rel, if (engine == "spacy") "nsub|dobj|pobj" else "nsubj|obj|obl|conj|nmod")
+      stringr::str_detect(.data$dep_rel, if (engine == "spacy") "csubj|nsub|dobj|pobj" else "nsubj|obj|obl|conj|nmod")
     ) %>%
     dplyr::filter(!.data$token %in% pseudobibeR::word_lists$gerund_stoplist)
 

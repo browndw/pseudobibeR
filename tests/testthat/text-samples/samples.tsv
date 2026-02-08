@@ -13,3 +13,5 @@ wh_question	When are you leaving?
 agentless_passive_1	The task was done.
 agentless_passive_2	By beginning this sentence with "by", I may break the classifier.
 existential_there	There is a feature in this sentence.
+gerund_1	Running is fun.
+gerund_2	I am running.

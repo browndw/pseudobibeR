@@ -51,6 +51,15 @@ check_features <- list(
   ),
   existential_there = list(
     f_20_existential_there = 1
+  ),
+  gerund_1 = list(
+    f_15_gerunds = 1
+  ),
+  gerund_2 = list(
+    # this is a participle, not a gerund (but also not a participial adverbial
+    # clause, so not f_25)
+    f_25_present_participle = 0,
+    f_15_gerunds = 0
   )
 )
 
