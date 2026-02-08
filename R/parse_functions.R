@@ -327,8 +327,7 @@ parse_biber_features <- function(tokens, measure, normalize, engine = c("spacy",
     dplyr::group_by(.data$doc_id) %>%
     dplyr::filter(
       .data$pos == "NOUN",
-      # TODO missing terminal $ below?
-      stringr::str_detect(.data$token, "tion$|tions$|ment$|ments$|ness$|nesses$|ity$|ities")
+      stringr::str_detect(.data$token, "tion$|tions$|ment$|ments$|ness$|nesses$|ity$|ities$")
     ) %>%
     dplyr::filter(
       !.data$token %in% pseudobibeR::word_lists$nominalization_stoplist
