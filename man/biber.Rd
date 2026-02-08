@@ -72,7 +72,7 @@ indicate the location of the feature.
 
 \describe{
 \item{f_01_past_tense}{Verbs in the past tense.}
-\item{f_02_perfect_aspect}{Verbs in the perfect aspect, indicated by "have" as an auxiliary verb (e.g. \emph{I [have] written this sentence.})"}
+\item{f_02_perfect_aspect}{Verbs in the perfect aspect, indicated by "have" as an auxiliary verb (e.g. \emph{I [have] written this sentence.})}
 \item{f_03_present_tense}{Verbs in the present tense.}
 }
 }
@@ -108,7 +108,7 @@ indicate the location of the feature.
 \subsection{Nominal forms}{
 
 \describe{
-\item{f_14_nominalizations}{Nominalizations (nouns ending in \emph{-tion}, \emph{-ment}, \emph{-ness}, \emph{-ity})}
+\item{f_14_nominalizations}{Nominalizations (nouns ending in \emph{-tion}, \emph{-ment}, \emph{-ness}, \emph{-ity}, e.g. \emph{adjustment}, \emph{abandonment})}
 \item{f_15_gerunds}{Gerunds (participial forms functioning as nouns)}
 \item{f_16_other_nouns}{Total other nouns}
 }
