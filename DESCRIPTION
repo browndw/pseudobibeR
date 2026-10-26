@@ -1,6 +1,6 @@
 Package: pseudobibeR
 Title: Aggregate Counts of Linguistic Features
-Version: 1.2
+Version: 1.3
 Date: 2024-11-18
 Authors@R: 
     c(
