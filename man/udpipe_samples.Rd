@@ -22,7 +22,7 @@ feature detection.
 }
 \details{
 Texts consist of early paragraphs from several public-domain books
-distributed by Project Gutenberg \url{https://gutenberg.org}. Document IDs are
+distributed by Project Gutenberg \url{https://www.gutenberg.org}. Document IDs are
 the Project Gutenberg book numbers.
 
 See \code{udpipe::udpipe_annotate()} and \code{spacyr::spacy_parse()} for
