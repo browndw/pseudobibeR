@@ -160,7 +160,7 @@ indicate the location of the feature.
 \item{f_39_prepositions}{Total prepositional phrases}
 \item{f_40_adj_attr}{Attributive adjectives (e.g., \emph{the [big] horse})}
 \item{f_41_adj_pred}{Predicative adjectives (e.g., \emph{The horse is [big].})}
-\item{f_42_adverbs}{Total adverbs}
+\item{f_42_adverbs}{Total adverbs, excluding those counted as place or time adverbials, downtoners, hedges or amplifiers (Biber's definition)}
 }
 }
 
@@ -168,7 +168,7 @@ indicate the location of the feature.
 
 \describe{
 \item{f_43_type_token}{Type-token ratio (including punctuation), using the statistic chosen in \code{measure}, or TTR if there are fewer than 200 tokens in the smallest document.}
-\item{f_44_mean_word_length}{Average word length (across tokens, excluding punctuation)}
+\item{f_44_mean_word_length}{Average word length in letters, across tokens made only of letters (any alphabet; numbers, hyphenated and contracted forms excluded)}
 }
 }
 
@@ -210,7 +210,7 @@ indicate the location of the feature.
 \item{f_59_contractions}{Contractions}
 \item{f_60_that_deletion}{Subordinator \emph{that} deletion (e.g., \emph{I think [he went].})}
 \item{f_61_stranded_preposition}{Stranded prepositions (e.g., \emph{the candidate that I was thinking [of]})}
-\item{f_62_split_infinitive}{Split infinitives (e.g., \emph{He wants [to convincingly prove] that ...})}
+\item{f_62_split_infinitive}{Split infinitives (e.g., \emph{He wants [to convincingly prove] that ...}); negation alone (\emph{to not go}, \emph{to never go}) is not counted}
 \item{f_63_split_auxiliary}{Split auxiliaries (e.g., \emph{They [were apparently shown] to ...})}
 }
 }

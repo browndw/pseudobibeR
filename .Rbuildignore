@@ -6,3 +6,5 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^\.github$
+^CROSS_LINGUISTIC_FEATURES\.md$
+^CONTRIBUTING\.md$

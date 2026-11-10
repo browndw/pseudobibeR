@@ -107,14 +107,14 @@
 #' \item{f_39_prepositions}{Total prepositional phrases}
 #' \item{f_40_adj_attr}{Attributive adjectives (e.g., *the \[big\] horse*)}
 #' \item{f_41_adj_pred}{Predicative adjectives (e.g., *The horse is \[big\].*)}
-#' \item{f_42_adverbs}{Total adverbs}
+#' \item{f_42_adverbs}{Total adverbs, excluding those counted as place or time adverbials, downtoners, hedges or amplifiers (Biber's definition)}
 #' }
 #'
 #' ## Lexical specificity
 #'
 #' \describe{
 #' \item{f_43_type_token}{Type-token ratio (including punctuation), using the statistic chosen in `measure`, or TTR if there are fewer than 200 tokens in the smallest document.}
-#' \item{f_44_mean_word_length}{Average word length (across tokens, excluding punctuation)}
+#' \item{f_44_mean_word_length}{Average word length in letters, across tokens made only of letters (any alphabet; numbers, hyphenated and contracted forms excluded)}
 #' }
 #'
 #' ## Lexical classes
@@ -152,7 +152,7 @@
 #' \item{f_59_contractions}{Contractions}
 #' \item{f_60_that_deletion}{Subordinator *that* deletion (e.g., *I think \[he went\].*)}
 #' \item{f_61_stranded_preposition}{Stranded prepositions (e.g., *the candidate that I was thinking \[of\]*)}
-#' \item{f_62_split_infinitive}{Split infinitives (e.g., *He wants \[to convincingly prove\] that ...*)}
+#' \item{f_62_split_infinitive}{Split infinitives (e.g., *He wants \[to convincingly prove\] that ...*); negation alone (*to not go*, *to never go*) is not counted}
 #' \item{f_63_split_auxiliary}{Split auxiliaries (e.g., *They \[were apparently shown\] to ...*)}
 #' }
 #'
@@ -279,6 +279,8 @@ parse_biber_features <- function(tokens, measure, normalize, engine = c("spacy",
     quanteda::dfm() %>%
     quanteda::convert(to = "data.frame") %>%
     dplyr::as_tibble()
+
+  biber_1$f_42_adverbs <- residual_adverb_counts(biber_tks, dict)[biber_1$doc_id]
 
   df[["f_02_perfect_aspect"]] <- tokens %>%
     dplyr::group_by(.data$doc_id) %>%
@@ -673,18 +675,24 @@ parse_biber_features <- function(tokens, measure, normalize, engine = c("spacy",
     dplyr::tally() %>%
     dplyr::rename(f_61_stranded_preposition = "n")
 
+  # Negation alone does not split an infinitive ("to not go", "to never go"),
+  # as in the Spanish and French packages; "to not really go" still counts.
+  negators <- c("not", "never", "n't")
   df[["f_62_split_infinitive"]] <- tokens %>%
     dplyr::group_by(.data$doc_id) %>%
     dplyr::filter(
       .data$tag == "TO",
       (
         dplyr::lead(.data$tag == "RB") &
-          dplyr::lead(.data$tag == "VB", 2)
+          dplyr::lead(.data$tag == "VB", 2) &
+          !dplyr::lead(.data$token %in% negators)
       ) |
         (
           dplyr::lead(.data$tag == "RB") &
             dplyr::lead(.data$tag == "RB", 2) &
-            dplyr::lead(.data$tag == "VB", 3)
+            dplyr::lead(.data$tag == "VB", 3) &
+            !(dplyr::lead(.data$token %in% negators) &
+                dplyr::lead(.data$token %in% negators, 2))
         )
     ) %>%
     dplyr::tally() %>%
@@ -779,7 +787,7 @@ parse_biber_features <- function(tokens, measure, normalize, engine = c("spacy",
 
   f_44_mean_word_length <- tokens %>%
     dplyr::filter(
-      stringr::str_detect(.data$token, "^[a-z]+$")
+      stringr::str_detect(.data$token, "^\\p{L}+$")
     ) %>%
     dplyr::mutate(mean_word_length = stringr::str_length(.data$token)) %>%
     dplyr::group_by(.data$doc_id) %>%
@@ -793,6 +801,36 @@ parse_biber_features <- function(tokens, measure, normalize, engine = c("spacy",
   biber_counts[] <- lapply(biber_counts, as.vector)
 
   return(biber_counts)
+}
+
+#' Total adverbs excluding specialized adverbial classes (f_42)
+#'
+#' Biber: "The count for total adverbs excludes those adverbs counted as
+#' instances of hedges, amplifiers, downtoners, amplifiers, place adverbials,
+#' and time adverbials." Counts RB/RBR/RBS/WRB tokens that do not fall inside
+#' a match of an f_04, f_05, f_46, f_47 or f_48 dictionary pattern, so each
+#' excluded adverb is removed once, including the words of multiword phrases
+#' such as "kind of".
+#'
+#' @param biber_tks Tagged quanteda tokens (`word_tag`, lower case).
+#' @param dict quanteda dictionary of features.
+#' @return Named integer vector of counts, one per document.
+#' @keywords internal
+residual_adverb_counts <- function(biber_tks, dict) {
+  excluded <- c("f_04_place_adverbials", "f_05_time_adverbials", "f_46_downtoners",
+                "f_47_hedges", "f_48_amplifiers")
+  patterns <- unlist(lapply(excluded, function(feature) dict[[feature]]), use.names = FALSE)
+  hits <- quanteda::kwic(biber_tks, quanteda::phrase(patterns), valuetype = "glob", window = 0)
+  docs <- quanteda::docnames(biber_tks)
+  counts <- vapply(docs, function(doc) {
+    toks <- as.character(biber_tks[[doc]])
+    adverb <- stringr::str_detect(toks, "_(rb[^_]*|wrb)$")
+    doc_hits <- hits[hits$docname == doc, ]
+    covered <- unlist(Map(seq.int, doc_hits$from, doc_hits$to))
+    sum(adverb & !seq_along(toks) %in% covered)
+  }, integer(1), USE.NAMES = FALSE)
+  names(counts) <- docs
+  counts
 }
 
 #' Normalize to counts per 1,000 tokens
