@@ -14,7 +14,7 @@ Please include:
 
 Proposals to change what a feature counts are welcome. Please explain the
 linguistic reasoning; accepted changes are recorded in the family decision
-log (`CROSS_LANGUAGE_ALIGNMENT.md`) so that the English, Spanish and French
+log ([CROSS_LANGUAGE_ALIGNMENT.md](CROSS_LANGUAGE_ALIGNMENT.md)) so that the English, Spanish and French
 packages stay parallel.
 
 ## Package layout

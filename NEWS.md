@@ -4,7 +4,7 @@
 
 * These changes align the English package with decisions shared by the
   Spanish (`pseudobibeR.es`) and French (`pseudobibeR.fr`) packages; decision
-  IDs refer to `CROSS_LANGUAGE_ALIGNMENT.md` in the package family repository.
+  IDs refer to `CROSS_LANGUAGE_ALIGNMENT.md` in this repository.
 
 * `f_42_adverbs` follows Biber's definition: adverbs counted as place or time
   adverbials (f_04, f_05), downtoners (f_46), hedges (f_47) or amplifiers

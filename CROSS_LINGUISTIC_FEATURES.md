@@ -39,7 +39,7 @@ options(pseudobibeR.feature_names = "shared")
 
 Each package's README has a fuller table with examples, and each package
 documents its exact counting rules in a technical reference. Decisions about
-analogues are logged in `CROSS_LANGUAGE_ALIGNMENT.md`.
+analogues are logged in [CROSS_LANGUAGE_ALIGNMENT.md](CROSS_LANGUAGE_ALIGNMENT.md).
 
 ## The features
 
